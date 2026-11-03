@@ -144,7 +144,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 /* Clareza: fluted glass */
 .flute{height:max(560px,92vh);background:radial-gradient(ellipse at 60% 40%,#1A3A6B,#0B1C3B 55%,#080C14);display:grid;place-items:center}
 .flute-strips{position:absolute;inset:0;z-index:0}
-.strip{position:absolute;top:0;bottom:0;overflow:hidden;box-shadow:inset 1px 0 rgba(255,255,255,.06)}
+.strip{position:absolute;top:0;bottom:0;overflow:hidden;box-shadow:inset 1px 0 rgba(255,255,255,.06);transform:translateZ(0);backface-visibility:hidden}
 .strip>div{position:absolute;background-repeat:no-repeat;filter:saturate(.75) brightness(1.08)}
 .s-sharp{inset:0}
 .s-blur{inset:-24px;filter:blur(11px) saturate(.75) brightness(1.18)!important}
@@ -501,7 +501,7 @@ html.js [data-fade].in{opacity:1}
   .prob{display:flex;flex-direction:column;min-height:0;gap:40px}
   .prob-foot{padding-top:0}
   .prob-ph{min-height:0;aspect-ratio:4/5}
-  .flute{height:min(80svh,660px);min-height:480px}
+  .flute{height:560px;min-height:0}
   .ar-tabs{margin-top:40px}
   .ar-tab .tl{display:none}
   .ar-stage{grid-template-columns:1fr}
@@ -528,10 +528,13 @@ html.js [data-fade].in{opacity:1}
   /* buttons span the screen on phones */
   .btn{width:100%;justify-content:center}
   .hero-actions,.prob-foot{flex-direction:column;align-items:stretch;width:100%}
-  .hero-meta{align-items:flex-end;text-align:right;width:100%}
+  .hero-meta{align-self:stretch;align-items:flex-start;text-align:left;width:100%}
   .pl-intro,.wy-foot{width:100%}
   .wy-foot{flex-direction:column;align-items:stretch;text-align:center}
   /* planejamento: centered columns */
+  .pl-head{align-items:center;text-align:center}
+  .pl-head>div:first-child{justify-items:center}
+  .pl-intro{justify-items:center;text-align:center}
   .pl-col{justify-items:center;text-align:center}
   .pl-dia{margin:0 auto 22px}
   .pl-col p{margin:0 auto}
@@ -542,18 +545,24 @@ html.js [data-fade].in{opacity:1}
   .wy-item .wy-big{opacity:.09;transform:none}
   .wy-2 .wy-big{opacity:.16}
   /* contato */
-  .bars{position:relative;top:auto;height:110px;margin-top:48px}
-  .ct-inner{padding-top:28px}
+  .bars{position:relative;top:auto;height:80px;margin-top:28px}
+  .ct-inner{padding-top:18px;gap:36px}
+  .ct-head{gap:18px}
+  .ct-head .lead{font-size:16px}
   .ct-head::before{display:none}
   .ct-head h2{font-size:clamp(44px,12vw,64px)}
   .ct-box{grid-template-columns:1fr;border-radius:18px}
-  .ct-aside{min-height:0;padding:170px 16px 18px;gap:26px}
+  .ct-aside{min-height:0;padding:110px 16px 18px;gap:22px}
   .ct-aside::before{background:linear-gradient(180deg,rgba(8,12,20,.15) 0,rgba(14,26,49,.75) 150px,#0E1A31 230px)}
   .ct-aside>img{height:280px;bottom:auto}
   .quote{max-width:none;padding:0 4px}
   .ct-q{padding:10px 12px 10px 10px;border-radius:14px}
   .ct-q b{font-size:13.5px;letter-spacing:-.01em}
-  .ct-q-link[href^="mailto"] b{font-size:12.5px}
+  .ct-q-link .ct-go{display:none}
+  .ct-q-link{grid-template-columns:44px minmax(0,1fr)}
+  .ct-q-link[href^="mailto"] b{font-size:13.5px}
+  .ct-meta .sep{display:none}
+  .ct-meta .nw{display:block}
   .ct-meta{flex-direction:column;align-items:center;text-align:center;gap:4px}
   .ct-card{padding:26px 18px;border-top:1px solid var(--line-d)}
   .ct-card::before{display:none}
@@ -630,7 +639,7 @@ html.js [data-fade].in{opacity:1}
       </div>
       <div class="hero-meta">
         <p><i></i>Direito Tributário e Direito Médico</p>
-        <p><i></i>Londrina, PR · Atendimento em todo o Brasil</p>
+        <p><i></i>Londrina, PR · Atendimento em todo&nbsp;o&nbsp;Brasil</p>
       </div>
     </div>
     <h1 class="hero-h"><span class="ln"><span>Segurança jurídica</span></span><span class="ln"><span>que transforma negócios.</span></span></h1>
@@ -908,7 +917,7 @@ html.js [data-fade].in{opacity:1}
       </button>
     </div>
     <div class="wy-foot">
-      <p>Sede em Londrina, Paraná, com atendimento em todo o Brasil, de segunda a sexta, das 08h às 18h.</p>
+      <p>Sede em Londrina, Paraná, com atendimento em todo&nbsp;o&nbsp;Brasil, de segunda a sexta, das 08h às 18h.</p>
       <a class="btn" href="#contato">Falar com um sócio<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></a>
     </div>
   </section>
@@ -920,7 +929,7 @@ html.js [data-fade].in{opacity:1}
       <div class="ct-head">
         <p class="tag"><b>06</b>Contato</p>
         <h2 id="ct-h" data-rise>Inicie sua consulta hoje.</h2>
-        <p class="lead" data-fade>Conte o que você precisa. Atendemos clientes em todo o Brasil, e um sócio analisa o caso e retorna pelo canal que você preferir.</p>
+        <p class="lead" data-fade>Conte o que você precisa. Atendemos clientes em todo&nbsp;o&nbsp;Brasil, e um sócio analisa o caso e retorna pelo canal que você preferir.</p>
       </div>
 
       <div class="ct-box" data-fade>
@@ -943,7 +952,7 @@ html.js [data-fade].in{opacity:1}
             <span><small>E-mail</small><b>atendimento@jjfadvocacia.com.br</b></span>
             <span class="ct-go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span>
           </a>
-          <p class="ct-meta"><span>Sede em Londrina, PR · Atendimento em todo o Brasil</span><span>Seg a Sex, 08h às 18h</span></p>
+          <p class="ct-meta"><span>Sede em Londrina, PR <i class="sep" style="font-style:normal">·</i> <span class="nw">Atendimento em todo&nbsp;o&nbsp;Brasil</span></span><span>Seg a Sex, 08h às 18h</span></p>
         </div>
       </aside>
 
@@ -1014,7 +1023,7 @@ html.js [data-fade].in{opacity:1}
     <a class="ft-status" href="#contato">
       <span class="ft-st-top"><span>Londrina, Paraná</span><span class="ft-pill" id="ft-pill"><i></i><span id="ft-open">Horário de Brasília</span></span></span>
       <span class="ft-time" id="ft-time">08:00</span>
-      <span class="ft-hours">Sede em Londrina, com atendimento em todo o Brasil. Segunda a sexta, das 08h às 18h.</span>
+      <span class="ft-hours">Sede em Londrina, com atendimento em todo&nbsp;o&nbsp;Brasil. Segunda a sexta, das 08h às 18h.</span>
       <span class="btn btn-sm">Agendar consulta<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></span>
     </a>
     <div class="ft-cols">
@@ -1070,7 +1079,7 @@ html.js [data-fade].in{opacity:1}
   <div class="menu-foot">
     <a class="btn" href="#contato">Agendar consulta<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></a>
     <a class="btn btn-ghost" href="https://wa.me/5543991092644" target="_blank" rel="noopener">Conversar pelo WhatsApp<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span></a>
-    <p>Sede em Londrina, PR · Atendimento em todo o Brasil</p>
+    <p>Sede em Londrina, PR · Atendimento em todo&nbsp;o&nbsp;Brasil</p>
   </div>
 </div>
 
@@ -1377,7 +1386,7 @@ html.js [data-fade].in{opacity:1}
   var rz;
   addEventListener('resize', function(){
     clearTimeout(rz);
-    rz = setTimeout(function(){ fitHero(); if (pic.complete && pic.naturalWidth) build(); parallax(); }, 150);
+    rz = setTimeout(function(){ fitHero(); if (pic.complete && pic.naturalWidth && fl.clientWidth !== W) build(); parallax(); }, 150);
   });
 })();
 </script>
