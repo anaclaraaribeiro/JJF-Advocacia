@@ -112,18 +112,18 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .hero{min-height:max(660px,100svh);display:flex;flex-direction:column;padding:var(--pad);padding-top:96px}
 .hero-shapes{position:absolute;inset:0;z-index:0;pointer-events:none}
 .sh{position:absolute}
-.sh1{width:66vw;aspect-ratio:1;border-radius:50%;left:-30vw;top:-34vw;background:linear-gradient(150deg,rgba(201,168,76,.14),rgba(13,34,72,0) 38%),var(--navy-2)}
-.sh2{width:24vw;height:44%;left:6vw;bottom:-8%;border-radius:22px;background:var(--navy-2);opacity:.75}
-.sh3{width:60vw;aspect-ratio:1;left:-20vw;bottom:-34vw;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.2),rgba(201,168,76,.06) 40%,rgba(201,168,76,0) 68%)}
-.hero-ph{position:absolute;right:0;top:0;bottom:0;width:62%;z-index:1;border-radius:clamp(90px,13vw,240px) 0 0 0}
-.hero-ph img{object-position:50% 28%}
-.hero-ph::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to bottom,rgba(8,12,20,.6),rgba(8,12,20,0) 20%),linear-gradient(to right,rgba(11,28,59,.85),rgba(11,28,59,0) 16%),linear-gradient(to top,rgba(11,28,59,.95) 0%,rgba(11,28,59,.6) 28%,rgba(11,28,59,0) 52%)}
+.sh1{width:66vw;aspect-ratio:1;border-radius:50%;right:-24vw;top:-30vw;background:linear-gradient(210deg,rgba(201,168,76,.14),rgba(13,34,72,0) 38%),var(--navy-2)}
+.sh2{width:24vw;height:44%;right:9vw;bottom:-8%;border-radius:22px;background:var(--navy-2);opacity:.75}
+.sh3{width:60vw;aspect-ratio:1;right:-18vw;bottom:-34vw;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.2),rgba(201,168,76,.06) 40%,rgba(201,168,76,0) 68%)}
+.hero-ph{position:absolute;left:0;top:0;bottom:0;width:45%;z-index:1;border-radius:0 clamp(90px,13vw,240px) 0 0}
+.hero-ph img{object-position:50% 22%}
+.hero-ph::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to bottom,rgba(8,12,20,.55),rgba(8,12,20,0) 22%),linear-gradient(to top,rgba(11,28,59,.94) 0%,rgba(11,28,59,.62) 30%,rgba(11,28,59,0) 58%)}
 .hero-body{position:relative;z-index:2;flex:1;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:auto 1fr;column-gap:24px;margin-top:clamp(36px,8vh,110px)}
-.hero-right{grid-column:1 / span 4;display:grid;gap:34px;justify-items:start}
+.hero-right{grid-column:7 / span 5;display:grid;gap:34px;justify-items:start}
 .hero-right::before{content:"";width:48px;height:1px;background:var(--gold)}
 .hero-statement{font-family:var(--display);font-size:clamp(20px,1.75vw,30px);line-height:1.28;letter-spacing:-.02em;max-width:24ch;text-wrap:balance}
 .hero-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.hero-meta{grid-column:1 / span 5;flex-direction:column;align-self:end;display:flex;gap:10px;padding-bottom:clamp(20px,3.5vh,44px);font-size:14px;color:var(--off-2)}
+.hero-meta{grid-column:7 / -1;align-self:end;display:flex;gap:clamp(28px,5vw,80px);padding-bottom:clamp(20px,3.5vh,44px);font-size:14px;color:var(--off-2)}
 .hero-meta p{display:flex;align-items:center;gap:12px}
 .hero-meta i{width:16px;height:1px;background:var(--gold)}
 .hero-h{position:relative;z-index:3;font-size:8.6vw;line-height:.97;letter-spacing:-.032em;margin-left:-.04em;margin-bottom:-.1em}
@@ -139,26 +139,38 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .prob-ph{grid-column:9 / -1;grid-row:1 / span 2;border-radius:12px;min-height:560px}
 .prob-note{position:absolute;z-index:2;left:20px;right:20px;bottom:20px;display:flex;justify-content:space-between;gap:16px;padding-top:14px;border-top:1px solid rgba(247,244,238,.35);font-size:13px;color:#fff}
 .prob-note b{font-weight:500;color:var(--gold-l)}
-.prob-chart{position:absolute;z-index:2;left:20px;right:20px;bottom:20px;padding:18px 18px 14px;border-radius:12px;background:#F7F4EE;color:var(--navy);font-size:12.5px;box-shadow:0 30px 60px -20px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.4)}
-.pc-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:18px}
-.pc-t{font-weight:500;font-size:14px}
-.pc-badge{display:inline-flex;align-items:center;gap:7px;font:400 10.5px/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:#69738A}
-.pc-badge i{width:6px;height:6px;border-radius:50%;background:var(--gold)}
-.pc-chart{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;height:clamp(84px,9vw,118px);align-items:end;border-bottom:1px solid var(--line-l)}
-.pc-g{display:flex;justify-content:center;align-items:flex-end;gap:3px;height:100%}
-.pc-b{display:block;width:clamp(7px,.75vw,11px);height:var(--h);border-radius:3px 3px 0 0;transform-origin:50% 100%;transition:transform 1.1s var(--ease) var(--d)}
-html.js .pc-b{transform:scaleY(0)}
-.pc-b.p{background:var(--navy)}
-.pc-b.d{background:var(--gold)}
-.prob-ph.in .pc-b{transform:none}
-.pc-x{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:7px;text-align:center;font-size:10.5px;color:#69738A}
-.pc-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line-l)}
-.pc-leg{display:flex;gap:14px;color:#465267}
+.prob-chart{position:absolute;z-index:2;left:9%;right:9%;top:50%;transform:translateY(-50%);background:#F7F4EE;color:var(--navy);border-radius:12px;font-size:13.5px;box-shadow:0 40px 80px -20px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.4)}
+.pc-body{padding:22px 20px 20px;display:grid;gap:6px}
+.pc-svg{display:block;width:100%;height:auto;margin-top:14px;overflow:visible}
+.pc-grid{fill:none;stroke:#E4DED2;stroke-width:1;stroke-dasharray:3 4}
+.pc-base{fill:none;stroke:#CFC8BA;stroke-width:1}
+.pc-under{fill:rgba(11,28,59,.05)}
+.pc-area{fill:url(#pc-gap);opacity:0;transition:opacity 1s var(--ease) .9s}
+.pc-paid,.pc-due{fill:none;stroke-width:2.4;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.6s var(--ease) .2s}
+.pc-paid{stroke:var(--navy)}
+.pc-due{stroke:var(--gold-d)}
+.pc-mark{fill:none;stroke:var(--navy);stroke-width:1;stroke-dasharray:2 3;opacity:0;transition:opacity .6s var(--ease) 1.3s}
+.pc-dots circle{stroke:#F7F4EE;stroke-width:2;transform-box:fill-box;transform-origin:center;transform:scale(0);transition:transform .6s var(--ease) 1.4s}
+.pc-dp{fill:var(--navy)}
+.pc-dd{fill:var(--gold)}
+.pc-chip{opacity:0;transform:translateY(6px);transition:opacity .6s var(--ease) 1.6s,transform .7s var(--ease) 1.6s}
+.pc-chip rect{fill:var(--navy)}
+.pc-chip text{font:500 9.5px var(--body);fill:var(--gold-l)}
+.prob-ph.in .pc-paid,.prob-ph.in .pc-due{stroke-dashoffset:0}
+.prob-ph.in .pc-area{opacity:1}
+.prob-ph.in .pc-mark{opacity:.5}
+.prob-ph.in .pc-dots circle{transform:none}
+.prob-ph.in .pc-chip{opacity:1;transform:none}
+html:not(.js) .pc-paid,html:not(.js) .pc-due{stroke-dashoffset:0}
+html:not(.js) .pc-area,html:not(.js) .pc-chip{opacity:1}
+html:not(.js) .pc-dots circle{transform:none}
+.pc-x{display:grid;grid-template-columns:repeat(5,1fr);margin:6px 2.5% 0;text-align:center;font-size:11px;color:#69738A}
+.pc-leg{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 16px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line-l);font-size:12px;color:#465267}
 .pc-leg span{display:inline-flex;align-items:center;gap:6px}
-.pc-leg i{width:9px;height:9px;border-radius:2px}
+.pc-leg i{width:14px;height:3px;border-radius:2px}
 .pc-leg i.p{background:var(--navy)}
-.pc-leg i.d{background:var(--gold)}
-.pc-foot b{font-weight:500;color:var(--gold-d)}
+.pc-leg i.d{background:var(--gold-d)}
+.pc-leg i.g{height:9px;width:12px;background:rgba(201,168,76,.45)}
 .prob-ph::before{content:"";position:absolute;z-index:1;left:0;right:0;bottom:0;height:55%;background:linear-gradient(to top,rgba(6,10,18,.88),rgba(6,10,18,.45) 45%,rgba(6,10,18,0));pointer-events:none}
 
 /* Clareza: fluted glass */
@@ -510,7 +522,7 @@ html.js [data-fade].in{opacity:1}
   .brand small{display:none}
   .menu-btn{display:inline-flex}
   .hero{display:grid;padding:0;min-height:0}
-  .hero-ph{position:relative;grid-area:1/1;width:100%;height:max(520px,118vw);min-height:0;border-radius:0 0 0 clamp(70px,24vw,150px)}
+  .hero-ph{position:relative;grid-area:1/1;width:100%;height:min(84svh,780px);min-height:520px;border-radius:0 0 clamp(70px,24vw,150px) 0}
   .hero-ph img{object-position:50% 20%}
   .hero-ph::before{background:linear-gradient(to bottom,rgba(8,12,20,.55),rgba(8,12,20,0) 22%),linear-gradient(to top,rgba(11,28,59,.96) 0%,rgba(11,28,59,.72) 34%,rgba(11,28,59,0) 66%)}
   .hero-h{grid-area:1/1;align-self:end;font-size:13.6vw!important;line-height:.95;padding:0 var(--pad) 26px;margin:0}
@@ -556,8 +568,8 @@ html.js [data-fade].in{opacity:1}
   .pl-head>div:first-child{justify-items:center}
   .pl-intro{justify-items:center;text-align:center}
   .pl-col{justify-items:center;text-align:center}
-  .prob-chart{left:14px;right:14px;bottom:14px;padding:16px 14px 12px}
-  .pc-foot b{font-size:12px}
+  .prob-chart{left:14px;right:14px}
+  .pc-body{padding:18px 14px 16px}
   .pl-dia{margin:0 auto 22px}
   .pl-col p{margin:0 auto}
   .pl-col:hover h3{transform:none}
@@ -649,7 +661,7 @@ html.js [data-fade].in{opacity:1}
   <section class="sec navy tex hero" id="topo" aria-label="Apresentação">
     <div class="hero-shapes" aria-hidden="true"><span class="sh sh1"></span><span class="sh sh2"></span><span class="sh sh3"></span></div>
     <figure class="ph hero-ph">
-      <div class="ph-in"><img src="img/hero.webp" alt="Três profissionais de terno diante de uma parede com luzes douradas" data-parallax fetchpriority="high"></div>
+      <div class="ph-in"><img src="img/hero.jpg" alt="Profissional de terno claro, de perfil, segurando uma flor seca diante de um fundo de tecido" data-parallax fetchpriority="high"></div>
     </figure>
     <div class="hero-body">
       <div class="hero-right">
@@ -680,7 +692,7 @@ html.js [data-fade].in{opacity:1}
     </div>
     <figure class="ph hov prob-ph" data-fade>
       <div class="ph-in"><img src="img/blur.jpg" alt="Pessoa em movimento, desfocada, diante de uma parede clara" data-parallax loading="lazy"></div>
-      <div class="prob-chart" aria-hidden="true"><div class="pc-top"><span class="pc-t">Revisão de tributos</span><span class="pc-badge"><i></i>Últimos 5 anos</span></div><div class="pc-chart"><span class="pc-g"><i class="pc-b p" style="--h:82%;--d:.15s"></i><i class="pc-b d" style="--h:56%;--d:.25s"></i></span><span class="pc-g"><i class="pc-b p" style="--h:90%;--d:.25s"></i><i class="pc-b d" style="--h:61%;--d:.35s"></i></span><span class="pc-g"><i class="pc-b p" style="--h:76%;--d:.35s"></i><i class="pc-b d" style="--h:50%;--d:.45s"></i></span><span class="pc-g"><i class="pc-b p" style="--h:96%;--d:.45s"></i><i class="pc-b d" style="--h:64%;--d:.55s"></i></span><span class="pc-g"><i class="pc-b p" style="--h:86%;--d:.55s"></i><i class="pc-b d" style="--h:58%;--d:.65s"></i></span></div><div class="pc-x"><span>Ano 1</span><span>Ano 2</span><span>Ano 3</span><span>Ano 4</span><span>Ano 5</span></div><div class="pc-foot"><span class="pc-leg"><span><i class="p"></i>Pago</span><span><i class="d"></i>Devido</span></span><b>Diferença recuperável</b></div></div>
+      <div class="prob-chart" aria-hidden="true"><div class="uc-top"><span class="uc-menu"><i></i></span><span class="uc-t">Revisão tributária</span><span class="uc-av"><svg viewBox="0 0 192 100"><path d="M45 0V75A19.5 19.5 0 0 1 6 75M104 0V75A19.5 19.5 0 0 1 65 75M130 0V100M124.5 5.5H172M124.5 48H164" fill="none" stroke="currentColor" stroke-width="13"/></svg></span></div><div class="pc-body"><p class="uc-h">Tributos pagos a mais</p><p class="uc-s"><i></i>Últimos 5 anos</p><svg class="pc-svg" viewBox="0 0 300 150"><defs><linearGradient id="pc-gap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C9A84C" stop-opacity=".55"/><stop offset="1" stop-color="#C9A84C" stop-opacity=".12"/></linearGradient></defs><path class="pc-grid" d="M10 30H290M10 70H290M10 110H290"/><path class="pc-base" d="M10 136H290"/><path class="pc-under" d="M20 92C52 92 53 84 85 84C117 84 118 98 150 98C182 98 183 78 215 78C247 78 248 88 280 88V136H20Z"/><path class="pc-area" d="M20 52C52 52 53 40 85 40C117 40 118 58 150 58C182 58 183 30 215 30C247 30 248 44 280 44L280 88C248 88 247 78 215 78C183 78 182 98 150 98C118 98 117 84 85 84C53 84 52 92 20 92Z"/><path class="pc-due" pathLength="1" d="M20 92C52 92 53 84 85 84C117 84 118 98 150 98C182 98 183 78 215 78C247 78 248 88 280 88"/><path class="pc-paid" pathLength="1" d="M20 52C52 52 53 40 85 40C117 40 118 58 150 58C182 58 183 30 215 30C247 30 248 44 280 44"/><path class="pc-mark" d="M215 32V76"/><g class="pc-dots"><circle cx="215" cy="30" r="4.5" class="pc-dp"/><circle cx="215" cy="78" r="4.5" class="pc-dd"/></g><g class="pc-chip"><rect x="160" y="2" width="110" height="20" rx="10"/><text x="215" y="15.5" text-anchor="middle">Diferença recuperável</text></g></svg><div class="pc-x"><span>Ano 1</span><span>Ano 2</span><span>Ano 3</span><span>Ano 4</span><span>Ano 5</span></div><div class="pc-leg"><span><i class="p"></i>Pago</span><span><i class="d"></i>Devido</span><span><i class="g"></i>A recuperar</span></div></div></div>
     </figure>
   </section>
 
