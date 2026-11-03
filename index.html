@@ -112,18 +112,18 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .hero{min-height:max(660px,100svh);display:flex;flex-direction:column;padding:var(--pad);padding-top:96px}
 .hero-shapes{position:absolute;inset:0;z-index:0;pointer-events:none}
 .sh{position:absolute}
-.sh1{width:66vw;aspect-ratio:1;border-radius:50%;right:-24vw;top:-30vw;background:linear-gradient(210deg,rgba(201,168,76,.14),rgba(13,34,72,0) 38%),var(--navy-2)}
-.sh2{width:24vw;height:44%;right:9vw;bottom:-8%;border-radius:22px;background:var(--navy-2);opacity:.75}
-.sh3{width:60vw;aspect-ratio:1;right:-18vw;bottom:-34vw;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.2),rgba(201,168,76,.06) 40%,rgba(201,168,76,0) 68%)}
-.hero-ph{position:absolute;left:0;top:0;bottom:0;width:45%;z-index:1;border-radius:0 clamp(90px,13vw,240px) 0 0}
-.hero-ph img{object-position:50% 22%}
-.hero-ph::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to bottom,rgba(8,12,20,.55),rgba(8,12,20,0) 22%),linear-gradient(to top,rgba(11,28,59,.94) 0%,rgba(11,28,59,.62) 30%,rgba(11,28,59,0) 58%)}
+.sh1{width:66vw;aspect-ratio:1;border-radius:50%;left:-30vw;top:-34vw;background:linear-gradient(150deg,rgba(201,168,76,.14),rgba(13,34,72,0) 38%),var(--navy-2)}
+.sh2{width:24vw;height:44%;left:6vw;bottom:-8%;border-radius:22px;background:var(--navy-2);opacity:.75}
+.sh3{width:60vw;aspect-ratio:1;left:-20vw;bottom:-34vw;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.2),rgba(201,168,76,.06) 40%,rgba(201,168,76,0) 68%)}
+.hero-ph{position:absolute;right:0;top:0;bottom:0;width:62%;z-index:1;border-radius:clamp(90px,13vw,240px) 0 0 0}
+.hero-ph img{object-position:50% 28%}
+.hero-ph::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to bottom,rgba(8,12,20,.6),rgba(8,12,20,0) 20%),linear-gradient(to right,rgba(11,28,59,.85),rgba(11,28,59,0) 16%),linear-gradient(to top,rgba(11,28,59,.95) 0%,rgba(11,28,59,.6) 28%,rgba(11,28,59,0) 52%)}
 .hero-body{position:relative;z-index:2;flex:1;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:auto 1fr;column-gap:24px;margin-top:clamp(36px,8vh,110px)}
-.hero-right{grid-column:7 / span 5;display:grid;gap:34px;justify-items:start}
+.hero-right{grid-column:1 / span 4;display:grid;gap:34px;justify-items:start}
 .hero-right::before{content:"";width:48px;height:1px;background:var(--gold)}
 .hero-statement{font-family:var(--display);font-size:clamp(20px,1.75vw,30px);line-height:1.28;letter-spacing:-.02em;max-width:24ch;text-wrap:balance}
 .hero-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.hero-meta{grid-column:7 / -1;align-self:end;display:flex;gap:clamp(28px,5vw,80px);padding-bottom:clamp(20px,3.5vh,44px);font-size:14px;color:var(--off-2)}
+.hero-meta{grid-column:1 / span 5;flex-direction:column;align-self:end;display:flex;gap:10px;padding-bottom:clamp(20px,3.5vh,44px);font-size:14px;color:var(--off-2)}
 .hero-meta p{display:flex;align-items:center;gap:12px}
 .hero-meta i{width:16px;height:1px;background:var(--gold)}
 .hero-h{position:relative;z-index:3;font-size:8.6vw;line-height:.93;letter-spacing:-.045em;margin-left:-.05em;margin-bottom:-.06em}
@@ -454,7 +454,8 @@ html.js [data-fade].in{opacity:1}
   .brand small{display:none}
   .menu-btn{display:inline-flex}
   .hero{display:grid;padding:0;min-height:0}
-  .hero-ph{position:relative;grid-area:1/1;width:100%;height:min(84svh,780px);min-height:520px;border-radius:0 0 clamp(70px,24vw,150px) 0}
+  .hero-ph{position:relative;grid-area:1/1;width:100%;height:max(520px,118vw);min-height:0;border-radius:0 0 0 clamp(70px,24vw,150px)}
+  .hero-ph img{object-position:50% 20%}
   .hero-ph::before{background:linear-gradient(to bottom,rgba(8,12,20,.55),rgba(8,12,20,0) 22%),linear-gradient(to top,rgba(11,28,59,.96) 0%,rgba(11,28,59,.72) 34%,rgba(11,28,59,0) 66%)}
   .hero-h{grid-area:1/1;align-self:end;font-size:13.6vw!important;line-height:.95;padding:0 var(--pad) 26px;margin:0}
   .hero-body{grid-area:2/1;display:flex;flex-direction:column;gap:32px;margin:0;padding:30px var(--pad) var(--pad)}
@@ -538,7 +539,7 @@ html.js [data-fade].in{opacity:1}
   <section class="sec navy tex hero" id="topo" aria-label="Apresentação">
     <div class="hero-shapes" aria-hidden="true"><span class="sh sh1"></span><span class="sh sh2"></span><span class="sh sh3"></span></div>
     <figure class="ph hero-ph">
-      <div class="ph-in"><img src="img/hero.jpg" alt="Profissional de terno claro, de perfil, diante de uma parede lisa" data-parallax fetchpriority="high"></div>
+      <div class="ph-in"><img src="img/hero.jpg" alt="Três profissionais em traje formal diante de uma parede com luzes douradas" data-parallax fetchpriority="high"></div>
     </figure>
     <div class="hero-body">
       <div class="hero-right">
@@ -757,7 +758,7 @@ html.js [data-fade].in{opacity:1}
 
   <!-- 04 Metodologia -->
   <section class="sec me" id="metodologia" aria-labelledby="me-h">
-    <div class="me-bg" aria-hidden="true"><img src="img/flute.jpg" alt="" loading="lazy"></div>
+    <div class="me-bg" aria-hidden="true"><img src="img/metodologia.jpg" alt="" loading="lazy"></div>
     <div class="me-panel tex">
       <div class="me-head">
         <p class="tag"><b>04</b>Metodologia</p>
