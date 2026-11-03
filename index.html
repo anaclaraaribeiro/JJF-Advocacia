@@ -126,8 +126,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .hero-meta{grid-column:1 / span 5;flex-direction:column;align-self:end;display:flex;gap:10px;padding-bottom:clamp(20px,3.5vh,44px);font-size:14px;color:var(--off-2)}
 .hero-meta p{display:flex;align-items:center;gap:12px}
 .hero-meta i{width:16px;height:1px;background:var(--gold)}
-.hero-h{position:relative;z-index:3;font-size:8.6vw;line-height:.93;letter-spacing:-.045em;margin-left:-.05em;margin-bottom:-.06em}
-.hero-h .ln{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.hero-h{position:relative;z-index:3;font-size:8.6vw;line-height:.97;letter-spacing:-.032em;margin-left:-.04em;margin-bottom:-.1em}
+.hero-h .ln{display:block;overflow:hidden;padding-bottom:.2em;margin-bottom:-.2em}
 .hero-h .ln>span{display:inline-block}
 
 /* 01 problem */
@@ -317,7 +317,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .wy-1{background:radial-gradient(70% 60% at 100% 100%,rgba(201,168,76,.3),rgba(201,168,76,0) 70%),var(--navy)}
 .wy-2{background:#1a1f29}
 .wy-2 img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;filter:saturate(.8)}
-.wy-2::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,12,20,.25),rgba(8,12,20,.82))}
+.wy-2::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,12,20,.62),rgba(8,12,20,.9))}
 .wy-3{background:linear-gradient(160deg,#D8BB63,#C9A84C 60%,#B89640);color:var(--navy)}
 .wy-4{background:radial-gradient(70% 60% at 0% 0%,rgba(143,171,199,.18),rgba(143,171,199,0) 70%),var(--char)}
 .wy-5{background:var(--paper-2);color:var(--navy)}
@@ -326,13 +326,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 /* 06 contato */
 .ct{background:radial-gradient(50% 40% at 0% 100%,rgba(201,168,76,.12),rgba(201,168,76,0) 70%),var(--deep)}
-.bars{position:relative;height:clamp(140px,24vh,250px);display:flex;align-items:flex-end;justify-content:space-between;padding:0 var(--pad);gap:2px;cursor:default}
+.bars{position:absolute;z-index:0;left:0;right:0;top:clamp(56px,9vh,104px);height:clamp(140px,24vh,250px);display:flex;align-items:flex-end;justify-content:space-between;padding:0 var(--pad);gap:2px;cursor:default}
 .bar{width:clamp(2px,.42vw,7px);height:var(--h);background:linear-gradient(to bottom,var(--c),rgba(201,168,76,0));transform-origin:50% 100%;border-radius:1px}
 html.js .bar{transform:scaleY(0);transition:transform 1.3s var(--ease) var(--d)}
 html.js .bars.in .bar{transform:none}
 html.js .bars.live .bar{transform:scaleY(var(--s,1));filter:brightness(var(--b,1));transition:transform .55s var(--ease),filter .55s var(--ease)}
-.ct-inner{padding:clamp(24px,4vh,48px) var(--pad) var(--sec);display:grid;gap:clamp(48px,7vh,84px)}
-.ct-head{display:grid;justify-items:center;gap:26px;text-align:center}
+.ct-inner{position:relative;z-index:1;padding:clamp(170px,26vh,270px) var(--pad) var(--sec);display:grid;gap:clamp(48px,7vh,84px)}
+.ct-head{position:relative;isolation:isolate;display:grid;justify-items:center;gap:26px;text-align:center}
+.ct-head::before{content:"";position:absolute;z-index:-1;left:50%;top:-12%;width:min(900px,96%);height:90%;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(6,10,18,.88),rgba(6,10,18,.5) 60%,rgba(6,10,18,0));pointer-events:none}
 .ct-head h2{font-size:clamp(48px,6.4vw,124px);max-width:14ch}
 .ct-head .lead{color:var(--off-2);max-width:44ch}
 .ct-box{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);width:100%;max-width:1280px;margin:0 auto;border-radius:24px;overflow:hidden;background:linear-gradient(180deg,#0E1A31,#0A1324);box-shadow:inset 0 0 0 1px rgba(247,244,238,.08),0 60px 120px -40px rgba(0,0,0,.85)}
@@ -350,6 +351,10 @@ html.js .bars.live .bar{transform:scaleY(var(--s,1));filter:brightness(var(--b,1
 .ct-q b{display:block;font-weight:500;font-size:15.5px;color:var(--off);overflow-wrap:anywhere}
 .ct-ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:var(--gold-l);background:rgba(201,168,76,.1);box-shadow:inset 0 0 0 1px rgba(201,168,76,.3)}
 .ct-ic svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.ct-q-link{transition:background-color .4s var(--ease),box-shadow .4s var(--ease)}
+.ct-q-link .ct-go{color:var(--gold-l);box-shadow:inset 0 0 0 1px rgba(232,201,122,.35)}
+.ct-q-link:hover{background:rgba(13,34,72,.85);box-shadow:inset 0 0 0 1px rgba(232,201,122,.55)}
+.ct-q-link:hover .ct-go{transform:rotate(45deg)}
 .ct-q-wa{background:var(--gold);box-shadow:none;transition:background-color .4s var(--ease)}
 .ct-q-wa:hover{background:var(--gold-l)}
 .ct-q-wa small{color:rgba(11,28,59,.7)}
@@ -398,7 +403,23 @@ html.js .bars.live .bar{transform:scaleY(var(--s,1));filter:brightness(var(--b,1
 .ft-brand .brand .logo{height:34px}
 .ft-brand .brand small{font-size:13.5px}
 .ft-statement{font:400 clamp(30px,3.2vw,52px)/1.04 var(--display);letter-spacing:-.04em;max-width:17ch;text-wrap:balance}
-.ft-status{grid-column:9 / -1;display:grid;gap:18px;align-content:start;padding:26px;border-radius:16px;background:rgba(247,244,238,.03);box-shadow:inset 0 0 0 1px rgba(247,244,238,.09)}
+.ft-status{grid-column:9 / -1;position:relative;isolation:isolate;overflow:hidden;display:grid;gap:18px;align-content:start;padding:26px;border-radius:16px;background:rgba(247,244,238,.03);box-shadow:inset 0 0 0 1px rgba(247,244,238,.09);transition:transform .6s var(--ease),box-shadow .6s var(--ease),background-color .6s var(--ease)}
+.ft-status::before{content:"";position:absolute;z-index:-1;inset:-40%;background:radial-gradient(closest-side,rgba(201,168,76,.28),rgba(201,168,76,0));transform:translate(60%,60%);opacity:0;transition:transform .9s var(--ease),opacity .6s var(--ease)}
+.ft-status:hover{transform:translateY(-6px);background:rgba(13,34,72,.5);box-shadow:inset 0 0 0 1px rgba(232,201,122,.55),0 30px 60px -30px rgba(201,168,76,.45)}
+.ft-status:hover::before{opacity:1;transform:translate(25%,25%)}
+.ft-status .ft-time{transition:color .5s var(--ease)}
+.ft-status:hover .ft-time{color:var(--gold-l)}
+.ft-status:hover .btn{background:var(--gold-l)}
+.ft-status:hover .btn-t span{transform:translateY(-100%)}
+.ft-status:hover .btn-i svg:first-child{transform:translateX(140%)}
+.ft-status:hover .btn-i svg+svg{transform:none}
+.ft-status>span{display:block}
+.ft-status>.ft-st-top{display:flex}
+.ft-status>.btn{display:inline-flex}
+.ft-btns{display:flex!important;gap:8px;flex-wrap:wrap;margin-top:8px}
+.ft-col .ft-btns .btn{color:var(--navy)}
+.ft-col .ft-btns .btn-ghost{color:var(--off)}
+.ft-col .ft-btns .btn:hover{transform:none}
 .ft-st-top{display:flex;justify-content:space-between;align-items:center;font-size:13.5px;color:var(--off-2)}
 .ft-pill{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;padding:6px 10px;border-radius:99px;background:rgba(247,244,238,.05);color:var(--off-2)}
 .ft-pill i{width:7px;height:7px;border-radius:50%;background:var(--mist)}
@@ -771,7 +792,7 @@ html.js [data-fade].in{opacity:1}
           <p>Análise completa da situação fiscal, contratual e de risco antes de qualquer recomendação.</p>
         </article>
         <article class="me-card c2" style="--y:70px">
-          <img src="img/tributario.jpg" alt="" loading="lazy">
+          <img src="img/estrategia.jpg" alt="" loading="lazy">
           <span class="me-n">(2)</span>
           <h3>Estratégia Personalizada</h3>
           <p>Soluções sob medida para cada cliente. Não existem fórmulas prontas em casos complexos.</p>
@@ -807,7 +828,7 @@ html.js [data-fade].in{opacity:1}
         <span class="wy-c"><span class="wy-t">Especialização exclusiva</span><span class="wy-d">Atuamos somente em Direito Tributário e Direito Médico. Profundidade em vez de dispersão.</span></span>
       </button>
       <button class="wy-item wy-2" type="button" aria-expanded="false">
-        <img src="img/preventiva.jpg" alt="" loading="lazy">
+        <img src="img/equipe.jpg" alt="" loading="lazy">
         <span class="wy-big" aria-hidden="true">02</span><span class="wy-n"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="3"/><circle cx="16.5" cy="10" r="2.5"/><path d="M3.5 19c.8-3 3-4.5 5.5-4.5s4.7 1.5 5.5 4.5M15 14.6c2.6 0 4.6 1.4 5.3 4.4"/></svg></span><i aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></i></span>
         <span class="wy-v" aria-hidden="true">Equipe multidisciplinar</span>
         <span class="wy-c"><span class="wy-t">Equipe multidisciplinar</span><span class="wy-d">Direito e contabilidade analisam o mesmo caso, com a mesma informação.</span></span>
@@ -854,14 +875,16 @@ html.js [data-fade].in{opacity:1}
             <span><small>WhatsApp</small><b>(43) 99109-2644</b></span>
             <span class="ct-go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span>
           </a>
-          <div class="ct-q">
+          <a class="ct-q ct-q-link" href="tel:+5543999818010">
             <span class="ct-ic"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span>
             <span><small>Telefone</small><b>(43) 99981-8010</b></span>
-          </div>
-          <div class="ct-q">
+            <span class="ct-go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span>
+          </a>
+          <a class="ct-q ct-q-link" href="mailto:atendimento@jjfadvocacia.com.br">
             <span class="ct-ic"><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3zM3 7l9 6 9-6"/></svg></span>
             <span><small>E-mail</small><b>atendimento@jjfadvocacia.com.br</b></span>
-          </div>
+            <span class="ct-go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span>
+          </a>
           <p class="ct-meta"><span>Sede em Londrina, PR · Atendimento em todo o Brasil</span><span>Seg a Sex, 08h às 18h</span></p>
         </div>
       </aside>
@@ -930,12 +953,12 @@ html.js [data-fade].in{opacity:1}
       <a class="brand" href="#topo" aria-label="JJF Advocacia e Consultoria, voltar ao início"><svg class="logo" viewBox="0 0 192 100" aria-hidden="true"><path d="M45 0V75A19.5 19.5 0 0 1 6 75M104 0V75A19.5 19.5 0 0 1 65 75M130 0V100M124.5 5.5H172M124.5 48H164" fill="none" stroke="currentColor" stroke-width="11"/><rect x="180" y="89" width="11" height="11" rx="1.5" fill="#C9A84C"/></svg><small>Advocacia &amp; Consultoria</small></a>
       <p class="ft-statement">Estratégia fiscal e proteção jurídica, com um sócio em todos os casos.</p>
     </div>
-    <div class="ft-status">
-      <div class="ft-st-top"><span>Londrina, Paraná</span><span class="ft-pill" id="ft-pill"><i></i><span id="ft-open">Horário de Brasília</span></span></div>
-      <p class="ft-time" id="ft-time">08:00</p>
-      <p class="ft-hours">Sede em Londrina, com atendimento em todo o Brasil. Segunda a sexta, das 08h às 18h.</p>
-      <a class="btn btn-sm" href="#contato">Agendar consulta<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></a>
-    </div>
+    <a class="ft-status" href="#contato">
+      <span class="ft-st-top"><span>Londrina, Paraná</span><span class="ft-pill" id="ft-pill"><i></i><span id="ft-open">Horário de Brasília</span></span></span>
+      <span class="ft-time" id="ft-time">08:00</span>
+      <span class="ft-hours">Sede em Londrina, com atendimento em todo o Brasil. Segunda a sexta, das 08h às 18h.</span>
+      <span class="btn btn-sm">Agendar consulta<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></span>
+    </a>
     <div class="ft-cols">
       <nav class="ft-col" aria-label="Rodapé">
         <h4>Navegação</h4>
@@ -947,17 +970,20 @@ html.js [data-fade].in{opacity:1}
       </nav>
       <div class="ft-col">
         <h4>Áreas</h4>
-        <span>Direito Tributário</span>
-        <span>Direito Médico</span>
-        <span>Consultoria Preventiva</span>
-        <span>Planejamento Sucessório</span>
+        <a href="#atuacao" data-tab="0">Direito Tributário</a>
+        <a href="#atuacao" data-tab="1">Direito Médico</a>
+        <a href="#atuacao" data-tab="2">Consultoria Preventiva</a>
+        <a href="#planejamento">Planejamento Sucessório</a>
       </div>
       <div class="ft-col">
         <h4>Contato</h4>
-        <span>(43) 99109-2644</span>
-        <span>(43) 99981-8010</span>
-        <span>atendimento@jjfadvocacia.com.br</span>
-        <a href="https://wa.me/5543991092644" target="_blank" rel="noopener">WhatsApp ↗</a>
+        <a href="https://wa.me/5543991092644" target="_blank" rel="noopener">(43) 99109-2644</a>
+        <a href="tel:+5543999818010">(43) 99981-8010</a>
+        <a href="mailto:atendimento@jjfadvocacia.com.br">atendimento@jjfadvocacia.com.br</a>
+        <span class="ft-btns">
+          <a class="btn btn-sm" href="https://wa.me/5543991092644" target="_blank" rel="noopener">WhatsApp<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span></a>
+          <a class="btn btn-sm btn-ghost" href="mailto:atendimento@jjfadvocacia.com.br">E-mail<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span></a>
+        </span>
       </div>
       <div class="ft-col">
         <h4>Topo</h4>
@@ -1126,6 +1152,9 @@ html.js [data-fade].in{opacity:1}
   ar.querySelector('.ar-stage').addEventListener('mouseenter', function(){ ar.classList.add('hold'); ar.classList.add('paused'); });
   ar.querySelector('.ar-stage').addEventListener('mouseleave', function(){ ar.classList.remove('hold'); ar.classList.remove('paused'); });
   setTab(0);
+  document.querySelectorAll('a[data-tab]').forEach(function(a){
+    a.addEventListener('click', function(){ autoplay = false; setTab(+a.dataset.tab); });
+  });
 
   // Diferenciais: the panel under the cursor opens
   var items = [].slice.call(document.querySelectorAll('.wy-item'));
