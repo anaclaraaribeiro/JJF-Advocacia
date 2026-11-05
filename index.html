@@ -563,10 +563,13 @@ html.js [data-fade].in{opacity:1}
 }
 @media (max-width:860px){
   /* quando procurar: swipe carousel inside the image panel */
-  .sp{margin-top:40px;padding:18px 0 20px;border-radius:14px}
-  .sp-row{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 18px;scroll-padding:0 18px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  /* the photo stays clipped to the rounded panel while the cards run past its edges */
+  .sp{margin-top:40px;padding:22px 0;border-radius:16px;overflow:visible}
+  .sp-bg{clip-path:inset(60px round 16px)}
+  .sp::after{border-radius:16px}
+  .sp-row{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(-1 * var(--pad));padding:0 10vw;scrollbar-width:none;-webkit-overflow-scrolling:touch}
   .sp-row::-webkit-scrollbar,.wy-acc::-webkit-scrollbar{display:none}
-  .sp-row>li{flex:0 0 86%;scroll-snap-align:start}
+  .sp-row>li{flex:0 0 80vw;scroll-snap-align:center;scroll-snap-stop:always}
   .sp-a:hover,.sp-a:focus-visible{transform:none}
   .sp-body{min-height:0;padding:26px 22px 24px}
   .sp-d{padding-top:16px}
@@ -615,8 +618,8 @@ html.js [data-fade].in{opacity:1}
   .me-card{--y:0px!important;flex:none;max-width:none;min-height:0;padding:36px 24px}
   .me-card.c5{display:none}
   .wy-head{display:flex;flex-direction:column;align-items:flex-start}
-  .wy-acc{height:auto;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad));padding:0 var(--pad);scroll-padding:0 var(--pad);scrollbar-width:none}
-  .wy-item,.wy-item.is-open{flex:0 0 84%;min-height:340px;gap:28px;padding:26px;cursor:default;scroll-snap-align:start}
+  .wy-acc{height:auto;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad));padding:0 10vw;scrollbar-width:none}
+  .wy-item,.wy-item.is-open{flex:0 0 80vw;min-height:340px;gap:28px;padding:26px;cursor:default;scroll-snap-align:center;scroll-snap-stop:always}
   .wy-v,.wy-n i{display:none}
   .wy-c{opacity:1;transform:none;min-width:0}
   .wy-2{min-height:380px}
@@ -1408,8 +1411,8 @@ html.js [data-fade].in{opacity:1}
     cards.forEach(function(){ dots.appendChild(document.createElement('i')); });
     after.insertAdjacentElement('afterend', dots);
     function sync(){
-      var start = track.getBoundingClientRect().left + parseFloat(getComputedStyle(track).paddingLeft || 0), best = 0, bestD = Infinity;
-      cards.forEach(function(c, k){ var d = Math.abs(c.getBoundingClientRect().left - start); if (d < bestD) { bestD = d; best = k; } });
+      var tr = track.getBoundingClientRect(), mid = tr.left + tr.width / 2, best = 0, bestD = Infinity;
+      cards.forEach(function(c, k){ var r = c.getBoundingClientRect(), d = Math.abs(r.left + r.width / 2 - mid); if (d < bestD) { bestD = d; best = k; } });
       [].forEach.call(dots.children, function(d, k){ d.classList.toggle('on', k === best); });
     }
     track.addEventListener('scroll', function(){ requestAnimationFrame(sync); }, { passive: true });
