@@ -1763,35 +1763,43 @@ html.js [data-fade].in{opacity:1}
     var nome = val('f-nome'), area = val('f-area');
     var btn = form.querySelector('button[type="submit"]'), errEl = document.getElementById('form-err');
     errEl.hidden = true; btn.disabled = true; btn.setAttribute('aria-busy', 'true'); form.classList.add('sending');
-    // FormSubmit does not answer the CORS preflight, so send a plain multipart POST in no-cors mode.
-    // The response is opaque: only a network failure can be detected here.
-    var fd = new FormData();
-    fd.append('Nome', nome);
-    fd.append('E-mail', val('f-email'));
-    fd.append('Telefone / WhatsApp', val('f-tel'));
-    fd.append('Área de interesse', area);
-    fd.append('Mensagem', val('f-msg') || '(sem mensagem)');
-    fd.append('_subject', 'Nova solicitação pelo site: ' + area);
-    fd.append('_replyto', val('f-email'));
-    fd.append('_template', 'table');
-    fd.append('_captcha', 'false');
-    fetch('https://formsubmit.co/ajax/' + FORM_TO, { method: 'POST', mode: 'no-cors', body: fd }).then(function(){
-      document.getElementById('success-area').textContent = area;
-      document.getElementById('success-msg').textContent = 'Obrigado, ' + nome.split(/\s+/)[0] + '. O escritório retorna pelo contato informado, em horário de atendimento.';
-      form.hidden = true; ok.hidden = false;
-      ok.closest('.ct-card').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
-      document.getElementById('success-h').focus({ preventScroll: true });
-    }).catch(function(err){
-      var why = (err && err.message) || '';
-      if (window.console) console.warn('Envio do formulário falhou:', why);
-      errEl.textContent = /activ/i.test(why)
-        ? 'O formulário aguarda ativação. Confirme o e-mail do FormSubmit enviado à caixa configurada (confira também Spam e Promoções) e envie de novo.'
-        : 'Não foi possível enviar agora. Tente novamente em instantes ou fale pelo WhatsApp.';
-      errEl.hidden = false;
-    }).then(function(){
-      btn.disabled = false; btn.removeAttribute('aria-busy'); form.classList.remove('sending');
+    // Classic FormSubmit flow: a plain form POST to formsubmit.co, which emails FORM_TO and
+    // redirects back here with ?enviado=1, where the success screen is shown.
+    var fields = {
+      'Nome': nome,
+      'E-mail': val('f-email'),
+      'Telefone / WhatsApp': val('f-tel'),
+      'Área de interesse': area,
+      'Mensagem': val('f-msg') || '(sem mensagem)',
+      '_subject': 'Nova solicitação pelo site: ' + area,
+      '_replyto': val('f-email'),
+      '_template': 'table',
+      '_captcha': 'false',
+      '_next': location.origin + location.pathname + '?enviado=1#contato'
+    };
+    var nf = document.createElement('form');
+    nf.method = 'POST'; nf.action = 'https://formsubmit.co/' + FORM_TO; nf.acceptCharset = 'UTF-8'; nf.hidden = true;
+    Object.keys(fields).forEach(function(k){
+      var inp = document.createElement('input'); inp.type = 'hidden'; inp.name = k; inp.value = fields[k]; nf.appendChild(inp);
     });
+    document.body.appendChild(nf);
+    try { sessionStorage.setItem('gf-sent', JSON.stringify({ nome: nome, area: area })); } catch (e) {}
+    try { nf.submit(); }
+    catch (e) {
+      errEl.hidden = false; btn.disabled = false; btn.removeAttribute('aria-busy'); form.classList.remove('sending');
+    }
   });
+
+  // Back from FormSubmit: show the success screen in place of the form
+  if (/[?&]enviado=1/.test(location.search)) {
+    var sent = {};
+    try { sent = JSON.parse(sessionStorage.getItem('gf-sent') || '{}'); sessionStorage.removeItem('gf-sent'); } catch (e) {}
+    if (sent.area) document.getElementById('success-area').textContent = sent.area;
+    document.getElementById('success-msg').textContent = (sent.nome ? 'Obrigado, ' + sent.nome.split(/\s+/)[0] + '. ' : 'Obrigado. ') + 'O escritório retorna pelo contato informado, em horário de atendimento.';
+    form.hidden = true; ok.hidden = false;
+    try { history.replaceState(null, '', location.pathname + '#contato'); } catch (e) {}
+    setTimeout(function(){ ok.closest('.ct-card').scrollIntoView({ block: 'center' }); }, 300);
+  }
   document.getElementById('form-reset').addEventListener('click', function(){
     form.reset(); ok.hidden = true; form.hidden = false;
     document.getElementById('f-nome').focus();
