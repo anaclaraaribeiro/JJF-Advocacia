@@ -254,6 +254,29 @@ html:not(.js) .pc-dots circle{transform:none}
 .ar-svcs li::before{content:"";flex:none;width:5px;height:5px;border-radius:50%;background:var(--gold);transform:translateY(-2px)}
 .ar-copy .btn{justify-self:start}
 
+/* quando procurar: situations that call for a medical-law specialist */
+.st{padding:var(--sec) var(--pad)}
+.st-glow{position:absolute;z-index:-1;right:-20%;top:-30%;width:70%;height:90%;background:radial-gradient(closest-side,rgba(201,168,76,.16),rgba(201,168,76,0));pointer-events:none}
+.st-head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:32px;align-items:end}
+.st-head>div{grid-column:1 / span 7;display:grid;gap:30px}
+.st-head h2{max-width:16ch}
+.st-intro{grid-column:9 / -1;color:var(--off-2);font-size:17px}
+.st-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(32px,4vw,72px);margin-top:clamp(56px,8vh,96px)}
+.st-item{position:relative;display:grid;grid-template-columns:52px minmax(0,1fr) 42px;gap:18px;align-items:start;padding:30px 0 32px;border-top:1px solid var(--line-d)}
+.st-item:nth-last-child(-n+2){border-bottom:1px solid var(--line-d)}
+.st-item::before{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:0 50%;transition:transform .7s var(--ease)}
+.st-n{font:400 12px/1 var(--mono);color:var(--gold-l);padding-top:10px}
+.st-c{display:grid;gap:10px}
+.st-item h3{font-size:clamp(22px,1.9vw,30px);line-height:1.1;letter-spacing:-.03em;transition:transform .45s var(--ease)}
+.st-item p{color:var(--off-2);font-size:15.5px;max-width:42ch}
+.st-area{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--gold-l)}
+.st-area::before{content:"";width:14px;height:1px;background:currentColor}
+.st-go{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;color:var(--gold-l);box-shadow:inset 0 0 0 1px rgba(232,201,122,.35);transition:transform .5s var(--ease),background-color .4s var(--ease),color .4s var(--ease)}
+.st-go svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.5}
+.st-item:hover::before{transform:none}
+.st-item:hover h3{transform:translateX(6px)}
+.st-item:hover .st-go{background:var(--gold);color:var(--navy);transform:rotate(45deg)}
+
 /* 03 planejamento */
 .pl{padding:var(--sec) var(--pad)}
 .pl-glow{position:absolute;z-index:-1;left:50%;bottom:-30%;width:120%;height:70%;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(201,168,76,.18),rgba(201,168,76,.05) 55%,rgba(201,168,76,0));pointer-events:none}
@@ -569,6 +592,13 @@ html.js [data-fade].in{opacity:1}
   .hero-meta{align-self:stretch;align-items:flex-start;text-align:left;width:100%}
   .pl-intro,.wy-foot{width:100%}
   .wy-foot{flex-direction:column;align-items:stretch;text-align:center}
+  .st-head{display:flex;flex-direction:column;align-items:flex-start}
+  .st-grid{grid-template-columns:1fr}
+  .st-item{grid-template-columns:36px minmax(0,1fr);padding:26px 0 28px}
+  .st-item:nth-last-child(-n+2){border-bottom:0}
+  .st-item:last-child{border-bottom:1px solid var(--line-d)}
+  .st-go{display:none}
+  .st-item:hover h3{transform:none}
   /* planejamento: centered columns */
   .pl-head{align-items:center;text-align:center}
   .pl-head>div:first-child{justify-items:center}
@@ -650,8 +680,8 @@ html.js [data-fade].in{opacity:1}
     <a class="brand" href="#topo" aria-label="Gabriel Filemon Advocacia, início"><svg class="logo" viewBox="0 0 182 100" aria-hidden="true"><path d="M84.1 21.4A44.5 44.5 0 1 0 94.5 50H57M120 0V100M114.5 5.5H162M114.5 48H154" fill="none" stroke="currentColor" stroke-width="11"/><rect x="170" y="89" width="11" height="11" rx="1.5" fill="#C9A84C"/></svg><small>Gabriel Filemon Advocacia</small></a>
     <nav class="nav" aria-label="Principal">
       <a class="ul" href="#atuacao">Direito Médico</a>
+      <a class="ul" href="#situacoes">Quando procurar</a>
       <a class="ul" href="#outras-areas">Outras áreas</a>
-      <a class="ul" href="#metodologia">Metodologia</a>
       <a class="ul" href="#contato">Contato</a>
     </nav>
     <a class="btn btn-sm nb-cta" href="#contato">Agendar consulta<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></a>
@@ -707,8 +737,8 @@ html.js [data-fade].in{opacity:1}
     <div class="flute-strips" aria-hidden="true"></div>
     <div class="flute-tint" aria-hidden="true"></div>
     <div class="flute-c">
-      <p class="flute-k">Direito Médico <i></i> Direito da Saúde</p>
-      <h2 class="h-xl flute-title" id="flute-h">Especialização que faz a diferença<span class="gold">.</span></h2>
+      <p class="flute-k">Médicos <i></i> Clínicas <i></i> Hospitais</p>
+      <h2 class="h-xl flute-title" id="flute-h">Advocacia que entende a rotina médica<span class="gold">.</span></h2>
     </div>
   </section>
 
@@ -818,13 +848,135 @@ html.js [data-fade].in{opacity:1}
     </div>
   </section>
 
-  <!-- 03 Outras áreas -->
+  <!-- 03 Quando procurar -->
+  <section class="sec navy tex st" id="situacoes" aria-labelledby="st-h">
+    <div class="st-glow" aria-hidden="true"></div>
+    <div class="st-head">
+      <div>
+        <p class="tag"><b>03</b>Quando procurar</p>
+        <h2 class="h-xl" id="st-h" data-rise>Situações que pedem um especialista em Direito Médico.</h2>
+      </div>
+      <p class="st-intro" data-fade>Para médicos, clínicas, hospitais e demais profissionais de saúde. Quanto antes o caso chega ao advogado, mais opções de estratégia existem.</p>
+    </div>
+    <div class="st-grid">
+      <a class="st-item" href="#contato" data-area="Defesa em Processos do CRM/CFM">
+        <span class="st-n">01</span>
+        <span class="st-c"><h3>Recebi uma notificação do CRM</h3><p>Sindicâncias pedem resposta técnica e no prazo. A defesa começa na primeira manifestação.</p><span class="st-area">Defesa em processos do CRM e CFM</span></span>
+        <span class="st-go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span>
+      </a>
+      <a class="st-item" href="#contato" data-area="Responsabilidade Civil Médica">
+        <span class="st-n">02</span>
+        <span class="st-c"><h3>Fui processado por erro médico</h3><p>Análise do prontuário, da conduta adotada e da perícia para construir a defesa.</p><span class="st-area">Responsabilidade civil médica</span></span>
+        <span class="st-go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span>
+      </a>
+      <a class="st-item" href="#contato" data-area="Consultoria Preventiva para Médicos">
+        <span class="st-n">03</span>
+        <span class="st-c"><h3>Vou abrir ou reestruturar uma clínica</h3><p>Contratos entre sócios, com profissionais e com operadoras, organizados desde o início.</p><span class="st-area">Consultoria preventiva</span></span>
+        <span class="st-go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span>
+      </a>
+      <a class="st-item" href="#contato" data-area="Consultoria Preventiva para Médicos">
+        <span class="st-n">04</span>
+        <span class="st-c"><h3>Preciso revisar termos e prontuários</h3><p>Termos de consentimento e documentação clínica que protegem o médico e o paciente.</p><span class="st-area">Consultoria preventiva</span></span>
+        <span class="st-go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span>
+      </a>
+      <a class="st-item" href="#contato" data-area="Consultoria Preventiva para Médicos">
+        <span class="st-n">05</span>
+        <span class="st-c"><h3>Tenho dúvidas sobre publicidade médica</h3><p>Comunicação nas redes sociais dentro das regras do CFM, sem expor o profissional.</p><span class="st-area">Consultoria preventiva</span></span>
+        <span class="st-go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span>
+      </a>
+      <a class="st-item" href="#contato" data-area="Responsabilidade Civil Médica">
+        <span class="st-n">06</span>
+        <span class="st-c"><h3>Conflito com plano de saúde ou hospital</h3><p>Glosas, descredenciamentos e contratos com operadoras e instituições de saúde.</p><span class="st-area">Contratos com operadoras</span></span>
+        <span class="st-go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 04 Metodologia -->
+  <section class="sec me" id="metodologia" aria-labelledby="me-h">
+    <div class="me-bg" aria-hidden="true"><img src="img/metodologia.jpg" alt="" loading="lazy"></div>
+    <div class="me-panel tex">
+      <div class="me-head">
+        <p class="tag"><b>04</b>Metodologia</p>
+        <h2 id="me-h" data-rise>Técnica jurídica com olhar clínico.</h2>
+      </div>
+      <div class="me-row" id="me-row">
+        <article class="me-card c1" style="--y:0px">
+          <span class="me-n">(1)</span>
+          <h3>Diagnóstico Aprofundado</h3>
+          <p>Análise da documentação clínica, dos contratos e do histórico do caso antes de qualquer recomendação.</p>
+        </article>
+        <article class="me-card c2" style="--y:70px">
+          <img src="img/estrategia.jpg" alt="" loading="lazy">
+          <span class="me-n">(2)</span>
+          <h3>Estratégia Personalizada</h3>
+          <p>Soluções sob medida para a realidade de cada médico, clínica ou instituição. Não existem fórmulas prontas.</p>
+        </article>
+        <article class="me-card c3" style="--y:6px">
+          <span class="me-n">(3)</span>
+          <h3>Acompanhamento Próximo</h3>
+          <p>Atuação ativa em cada etapa, com comunicação direta e transparente com o advogado.</p>
+        </article>
+        <a class="me-card c4" href="#contato" style="--y:48px">
+          <span class="me-n">Próximo passo</span>
+          <h3>Converse com o advogado</h3>
+          <p>O primeiro passo é entender o seu caso.</p>
+          <span class="me-go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 Diferenciais -->
+  <section class="sec paper tex wy" id="diferenciais" aria-labelledby="wy-h">
+    <div class="wy-head">
+      <div>
+        <p class="tag"><b>05</b>Diferenciais</p>
+        <h2 class="h-xl" id="wy-h" data-rise>Advocacia próxima e especializada.</h2>
+      </div>
+      <p class="lead" data-fade>Cinco compromissos com quem cuida da saúde, do primeiro contato à conclusão do caso.</p>
+    </div>
+    <div class="wy-acc" id="wy-acc">
+      <button class="wy-item wy-1 is-open" type="button" aria-expanded="true">
+        <span class="wy-big" aria-hidden="true">01</span><span class="wy-n"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg></span><i aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></i></span>
+        <span class="wy-v" aria-hidden="true">Foco em Direito Médico</span>
+        <span class="wy-c"><span class="wy-t">Foco em Direito Médico</span><span class="wy-d">Conhecimento da rotina médica, das normas do CFM e da linguagem da saúde.</span></span>
+      </button>
+      <button class="wy-item wy-2" type="button" aria-expanded="false">
+        <img src="img/equipe.jpg" alt="" loading="lazy">
+        <span class="wy-big" aria-hidden="true">02</span><span class="wy-n"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10" cy="8" r="3.5"/><path d="M3.5 20c.9-3.6 3.4-5.5 6.5-5.5 1.5 0 2.9.4 4 1.3M15 18l2 2 4-4"/></svg></span><i aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></i></span>
+        <span class="wy-v" aria-hidden="true">Atendimento direto</span>
+        <span class="wy-c"><span class="wy-t">Atendimento direto com o advogado</span><span class="wy-d">Você fala diretamente com quem conduz o seu caso, do primeiro contato à conclusão.</span></span>
+      </button>
+      <button class="wy-item wy-3" type="button" aria-expanded="false">
+        <span class="wy-big" aria-hidden="true">03</span><span class="wy-n"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><i aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></i></span>
+        <span class="wy-v" aria-hidden="true">Atuação preventiva</span>
+        <span class="wy-c"><span class="wy-t">Atuação preventiva</span><span class="wy-d">Contratos, termos e documentação bem estruturados antes que surja qualquer conflito.</span></span>
+      </button>
+      <button class="wy-item wy-4" type="button" aria-expanded="false">
+        <span class="wy-big" aria-hidden="true">04</span><span class="wy-n"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3M12 14.5v2"/></svg></span><i aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></i></span>
+        <span class="wy-v" aria-hidden="true">Sigilo absoluto</span>
+        <span class="wy-c"><span class="wy-t">Sigilo absoluto</span><span class="wy-d">Confidencialidade em cada etapa, com o mesmo cuidado que o médico tem com o paciente.</span></span>
+      </button>
+      <button class="wy-item wy-5" type="button" aria-expanded="false">
+        <span class="wy-big" aria-hidden="true">05</span><span class="wy-n"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg></span><i aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></i></span>
+        <span class="wy-v" aria-hidden="true">Honorários transparentes</span>
+        <span class="wy-c"><span class="wy-t">Honorários transparentes</span><span class="wy-d">Escopo e honorários definidos com clareza antes de começar.</span></span>
+      </button>
+    </div>
+    <div class="wy-foot">
+      <p>Atendimento de segunda a sexta, das 08h às 18h.</p>
+      <a class="btn" href="#contato">Falar com o advogado<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></a>
+    </div>
+  </section>
+
+  <!-- 06 Outras áreas -->
   <section class="sec navy tex pl" id="outras-areas" aria-labelledby="pl-h">
     <div class="pl-glow" aria-hidden="true"></div>
     <div class="pl-head">
       <div>
-        <p class="tag"><b>03</b>Outras áreas</p>
-        <h2 class="h-xl" id="pl-h" data-rise>Atuação completa, além da saúde.</h2>
+        <p class="tag"><b>06</b>Outras áreas</p>
+        <h2 class="h-xl" id="pl-h" data-rise>Atuação complementar, além da saúde.</h2>
       </div>
       <div class="pl-intro" data-fade>
         <p>Além do Direito Médico, o escritório atende demandas cíveis, de família, tributárias e trabalhistas, com o mesmo cuidado técnico e atendimento direto.</p>
@@ -900,92 +1052,14 @@ html.js [data-fade].in{opacity:1}
     </div>
   </section>
 
-  <!-- 04 Metodologia -->
-  <section class="sec me" id="metodologia" aria-labelledby="me-h">
-    <div class="me-bg" aria-hidden="true"><img src="img/metodologia.jpg" alt="" loading="lazy"></div>
-    <div class="me-panel tex">
-      <div class="me-head">
-        <p class="tag"><b>04</b>Metodologia</p>
-        <h2 id="me-h" data-rise>Técnica rigorosa. Resultado concreto.</h2>
-      </div>
-      <div class="me-row" id="me-row">
-        <article class="me-card c1" style="--y:0px">
-          <span class="me-n">(1)</span>
-          <h3>Diagnóstico Aprofundado</h3>
-          <p>Análise da documentação clínica, dos contratos e do histórico do caso antes de qualquer recomendação.</p>
-        </article>
-        <article class="me-card c2" style="--y:70px">
-          <img src="img/estrategia.jpg" alt="" loading="lazy">
-          <span class="me-n">(2)</span>
-          <h3>Estratégia Personalizada</h3>
-          <p>Soluções sob medida para a realidade de cada médico, clínica ou instituição. Não existem fórmulas prontas.</p>
-        </article>
-        <article class="me-card c3" style="--y:6px">
-          <span class="me-n">(3)</span>
-          <h3>Acompanhamento Próximo</h3>
-          <p>Atuação ativa em cada etapa, com comunicação direta e transparente com o advogado.</p>
-        </article>
-        <a class="me-card c4" href="#contato" style="--y:48px">
-          <span class="me-n">Próximo passo</span>
-          <h3>Converse com o advogado</h3>
-          <p>O primeiro passo é entender o seu caso.</p>
-          <span class="me-go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 05 Diferenciais -->
-  <section class="sec paper tex wy" id="diferenciais" aria-labelledby="wy-h">
-    <div class="wy-head">
-      <div>
-        <p class="tag"><b>05</b>Diferenciais</p>
-        <h2 class="h-xl" id="wy-h" data-rise>Advocacia próxima e especializada.</h2>
-      </div>
-      <p class="lead" data-fade>Cinco compromissos que orientam cada atendimento, do primeiro contato à conclusão do caso.</p>
-    </div>
-    <div class="wy-acc" id="wy-acc">
-      <button class="wy-item wy-1 is-open" type="button" aria-expanded="true">
-        <span class="wy-big" aria-hidden="true">01</span><span class="wy-n"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg></span><i aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></i></span>
-        <span class="wy-v" aria-hidden="true">Foco em Direito Médico</span>
-        <span class="wy-c"><span class="wy-t">Foco em Direito Médico</span><span class="wy-d">Conhecimento da rotina médica, das normas do CFM e da linguagem da saúde.</span></span>
-      </button>
-      <button class="wy-item wy-2" type="button" aria-expanded="false">
-        <img src="img/equipe.jpg" alt="" loading="lazy">
-        <span class="wy-big" aria-hidden="true">02</span><span class="wy-n"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10" cy="8" r="3.5"/><path d="M3.5 20c.9-3.6 3.4-5.5 6.5-5.5 1.5 0 2.9.4 4 1.3M15 18l2 2 4-4"/></svg></span><i aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></i></span>
-        <span class="wy-v" aria-hidden="true">Atendimento direto</span>
-        <span class="wy-c"><span class="wy-t">Atendimento direto com o advogado</span><span class="wy-d">Você fala diretamente com quem conduz o seu caso, do primeiro contato à conclusão.</span></span>
-      </button>
-      <button class="wy-item wy-3" type="button" aria-expanded="false">
-        <span class="wy-big" aria-hidden="true">03</span><span class="wy-n"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><i aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></i></span>
-        <span class="wy-v" aria-hidden="true">Atuação preventiva</span>
-        <span class="wy-c"><span class="wy-t">Atuação preventiva</span><span class="wy-d">Contratos, termos e documentação bem estruturados antes que surja qualquer conflito.</span></span>
-      </button>
-      <button class="wy-item wy-4" type="button" aria-expanded="false">
-        <span class="wy-big" aria-hidden="true">04</span><span class="wy-n"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3M12 14.5v2"/></svg></span><i aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></i></span>
-        <span class="wy-v" aria-hidden="true">Sigilo absoluto</span>
-        <span class="wy-c"><span class="wy-t">Sigilo absoluto</span><span class="wy-d">Ética profissional e confidencialidade em cada etapa do atendimento.</span></span>
-      </button>
-      <button class="wy-item wy-5" type="button" aria-expanded="false">
-        <span class="wy-big" aria-hidden="true">05</span><span class="wy-n"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg></span><i aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></i></span>
-        <span class="wy-v" aria-hidden="true">Honorários transparentes</span>
-        <span class="wy-c"><span class="wy-t">Honorários transparentes</span><span class="wy-d">Escopo e honorários definidos com clareza antes de começar.</span></span>
-      </button>
-    </div>
-    <div class="wy-foot">
-      <p>Atendimento de segunda a sexta, das 08h às 18h.</p>
-      <a class="btn" href="#contato">Falar com o advogado<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></a>
-    </div>
-  </section>
-
-  <!-- 06 Contato -->
+  <!-- 07 Contato -->
   <section class="sec tex ct" id="contato" aria-labelledby="ct-h">
     <div class="bars" aria-hidden="true"></div>
     <div class="ct-inner">
       <div class="ct-head">
-        <p class="tag"><b>06</b>Contato</p>
+        <p class="tag"><b>07</b>Contato</p>
         <h2 id="ct-h" data-rise>Inicie sua consulta hoje.</h2>
-        <p class="lead" data-fade>Conte o que você precisa. O advogado analisa o caso e retorna pelo canal que você preferir.</p>
+        <p class="lead" data-fade>Conte o que está acontecendo no consultório, na clínica ou no hospital. O advogado analisa o caso e retorna pelo canal que você preferir.</p>
       </div>
 
       <div class="ct-box" data-fade>
@@ -1088,6 +1162,7 @@ html.js [data-fade].in{opacity:1}
         <h4>Navegação</h4>
         <a href="#topo">Início</a>
         <a href="#atuacao">Direito Médico</a>
+        <a href="#situacoes">Quando procurar</a>
         <a href="#outras-areas">Outras áreas</a>
         <a href="#metodologia">Metodologia</a>
         <a href="#contato">Contato</a>
@@ -1129,8 +1204,8 @@ html.js [data-fade].in{opacity:1}
   </div>
   <nav class="menu-links" aria-label="Menu principal">
     <a href="#atuacao"><b>01</b>Direito Médico</a>
-    <a href="#outras-areas"><b>02</b>Outras áreas</a>
-    <a href="#metodologia"><b>03</b>Metodologia</a>
+    <a href="#situacoes"><b>02</b>Quando procurar</a>
+    <a href="#outras-areas"><b>03</b>Outras áreas</a>
     <a href="#contato"><b>04</b>Contato</a>
   </nav>
   <div class="menu-foot">
@@ -1196,7 +1271,7 @@ html.js [data-fade].in{opacity:1}
       navLinks.forEach(function(a){ a.classList.toggle('is-current', a.getAttribute('href') === '#' + e.target.id); });
     });
   }, { rootMargin: '-45% 0px -50% 0px' });
-  ['topo', 'atuacao', 'outras-areas', 'metodologia', 'diferenciais', 'contato'].forEach(function(id){ spy.observe(document.getElementById(id)); });
+  ['topo', 'atuacao', 'situacoes', 'metodologia', 'diferenciais', 'outras-areas', 'contato'].forEach(function(id){ spy.observe(document.getElementById(id)); });
 
   // Links that name an area preselect it in the contact form
   document.querySelectorAll('a[href="#contato"]').forEach(function(a){
