@@ -261,59 +261,66 @@ html:not(.js) .pc-dots circle{transform:none}
 .st-head>div{grid-column:1 / span 7;display:grid;gap:30px}
 .st-head h2{max-width:16ch}
 .st-intro{grid-column:9 / -1;color:var(--off-2);font-size:17px}
-.sc-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px;margin-top:clamp(56px,8vh,96px)}
-.sc{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;gap:22px;min-width:0;border-radius:16px;padding:clamp(22px,2.2vw,32px);color:var(--off);background:var(--navy-2);transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
-.sc::after{content:"";position:absolute;inset:0;z-index:-1;background-image:var(--grain);background-size:240px;opacity:.12;mix-blend-mode:overlay;pointer-events:none}
-.sc:hover{transform:translateY(-6px);box-shadow:0 34px 70px -34px rgba(0,0,0,.7)}
-.sc-vis{flex:1;display:grid;place-items:center;min-height:170px}
-.sc-vis svg{display:block;width:100%;max-width:300px;height:auto;overflow:visible}
-.sc-txt{display:grid;gap:10px;align-content:end}
-.sc-n{font:400 12px/1 var(--mono);color:var(--gold-l)}
-.sc h3{font-size:clamp(21px,1.7vw,28px);line-height:1.08;letter-spacing:-.03em;max-width:18ch}
-.sc p{font-size:15px;opacity:.82;max-width:40ch}
-.sc-area{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--gold-l)}
-.sc-area::before{content:"";width:14px;height:1px;background:currentColor}
-.sc-go{position:absolute;top:20px;right:20px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;box-shadow:inset 0 0 0 1px currentColor;opacity:.55;transition:transform .5s var(--ease),opacity .4s var(--ease)}
-.sc-go svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.5}
-.sc:hover .sc-go{transform:rotate(45deg);opacity:1}
-.sc-a{grid-column:span 7;flex-direction:row;align-items:stretch;min-height:400px;background:radial-gradient(80% 70% at 100% 0%,rgba(201,168,76,.24),rgba(201,168,76,0) 60%),var(--navy-2)}
-.sc-a .sc-txt{flex:1}
-.sc-a .sc-vis{flex:1.15}
-.sc-b{grid-column:span 5;background:var(--paper);color:var(--navy)}
-.sc-c,.sc-d,.sc-e{grid-column:span 4;min-height:440px}
-.sc-c{background:radial-gradient(70% 60% at 0% 0%,rgba(143,171,199,.16),rgba(143,171,199,0) 70%),var(--char)}
-.sc-d{background:linear-gradient(160deg,#D8BB63,#C9A84C 60%,#B89640);color:var(--navy)}
-.sc-e{background:var(--paper-2);color:var(--navy)}
-.sc-f{grid-column:span 12;flex-direction:row;align-items:center;gap:clamp(24px,4vw,64px);min-height:260px;background:linear-gradient(120deg,var(--navy-2),#0A1428)}
-.sc-f .sc-txt{flex:0 0 38%}
-.sc-f .sc-vis{flex:1;min-height:0}
-.sc-f .sc-vis svg{max-width:520px}
-.sc-b .sc-n,.sc-b .sc-area,.sc-e .sc-n,.sc-e .sc-area{color:var(--gold-d)}
-.sc-d .sc-n,.sc-d .sc-area{color:var(--navy)}
-.sc-b p,.sc-d p,.sc-e p{opacity:.78}
+.sq{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(40px,5vw,96px);align-items:start;margin-top:clamp(56px,8vh,96px)}
+.sq-list{border-top:1px solid var(--line-d)}
+.sq-item{position:relative;border-bottom:1px solid var(--line-d)}
+.sq-item::before{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:0 50%;transition:transform .7s var(--ease)}
+.sq-item.is-active::before{transform:none}
+.sq-head{width:100%;display:grid;grid-template-columns:44px minmax(0,1fr) 28px;align-items:center;gap:12px;padding:22px 0;background:none;border:0;text-align:left;color:var(--off);cursor:pointer}
+.sq-n{font:400 12px/1 var(--mono);color:var(--gold-l)}
+.sq-t{font:400 clamp(20px,1.7vw,27px)/1.12 var(--display);letter-spacing:-.03em;opacity:.55;transition:opacity .4s var(--ease),transform .45s var(--ease)}
+.sq-item.is-active .sq-t,.sq-head:hover .sq-t{opacity:1}
+.sq-item.is-active .sq-t{transform:translateX(6px)}
+.sq-plus{position:relative;width:28px;height:28px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(232,201,122,.4)}
+.sq-plus::before,.sq-plus::after{content:"";position:absolute;left:8px;right:8px;top:50%;height:1.5px;margin-top:-.75px;background:var(--gold-l);transition:transform .45s var(--ease)}
+.sq-plus::after{transform:rotate(90deg)}
+.sq-item.is-active .sq-plus::after{transform:rotate(0)}
+.sq-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s var(--ease)}
+.sq-panel>div{overflow:hidden;min-height:0}
+.sq-item.is-active .sq-panel{grid-template-rows:1fr}
+.sq-in{display:grid;gap:14px;padding:0 0 26px 56px}
+.sq-in p{color:var(--off-2);font-size:16px;max-width:44ch}
+.sq-cta{display:inline-flex;align-items:center;gap:10px;justify-self:start;font-size:14px;color:var(--gold-l)}
+.sq-cta span{background:linear-gradient(currentColor,currentColor) left bottom/0 1px no-repeat;padding-bottom:2px;transition:background-size .4s var(--ease)}
+.sq-cta:hover span{background-size:100% 1px}
+.sq-cta svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.5;transition:transform .45s var(--ease)}
+.sq-cta:hover svg{transform:rotate(45deg)}
+.sq-mvis{display:none}
+.sq-stage{position:sticky;top:110px;aspect-ratio:1/.9;min-height:440px;border-radius:18px;overflow:hidden;isolation:isolate;box-shadow:0 50px 100px -40px rgba(0,0,0,.7),inset 0 0 0 1px rgba(247,244,238,.08)}
+.sq-vis{position:absolute;inset:0;display:grid;place-items:center;padding:9% 10% 14%;opacity:0;transform:scale(1.03);transition:opacity .6s var(--ease),transform .9s var(--ease)}
+.sq-vis.is-active{opacity:1;transform:none}
+.sq-vis svg{display:block;width:100%;max-width:420px;height:auto;overflow:visible}
+.sq-vis::after,.sq-mvis::after{content:"";position:absolute;inset:0;z-index:-1;background-image:var(--grain);background-size:240px;opacity:.12;mix-blend-mode:overlay;pointer-events:none}
+.sq-cap{position:absolute;left:26px;bottom:22px;font:400 11.5px/1 var(--mono);letter-spacing:.04em;opacity:.75}
+.v0{background:radial-gradient(80% 70% at 100% 0%,rgba(201,168,76,.26),rgba(201,168,76,0) 60%),var(--navy-2);color:var(--gold-l)}
+.v1{background:var(--paper);color:var(--gold-d)}
+.v2{background:radial-gradient(70% 60% at 0% 0%,rgba(143,171,199,.16),rgba(143,171,199,0) 70%),var(--char);color:var(--gold-l)}
+.v3{background:linear-gradient(160deg,#D8BB63,#C9A84C 60%,#B89640);color:var(--navy)}
+.v4{background:var(--paper-2);color:var(--gold-d)}
+.v5{background:linear-gradient(120deg,var(--navy-2),#0A1428);color:var(--gold-l)}
+.v5 svg{max-width:460px}
+.sq-vis.is-active .sv-sheet{transform:translateY(-14px);transition-delay:.25s}
+.sq-vis.is-active .sv-lens{transform:translate(-40px,-38px);transition-delay:.25s}
+.sq-vis.is-active .sv-sign,.sq-item.is-active .sq-mvis .sv-sign{stroke-dashoffset:0}
+.sq-vis.is-active .sv-chk{transform:translateX(4px)}
+.sq-vis.is-active .sv-badge{transform:scale(1.12) rotate(-4deg);transition-delay:.3s}
+.sq-vis.is-active .sv-row{transform:translateX(8px)}
+.sq-vis.is-active .sv-row:nth-of-type(2){transition-delay:.08s}
+.sq-vis.is-active .sv-row:nth-of-type(3){transition-delay:.16s}
+html:not(.js) .sv-sign{stroke-dashoffset:0}
 .sv-m{font:400 7.5px var(--mono);letter-spacing:.08em}
 .sv-t{font:500 9.5px var(--body)}
 .sv-sheet{transition:transform .8s var(--ease)}
-.sc-a:hover .sv-sheet{transform:translateY(-14px)}
 .sv-lens{transition:transform 1s var(--ease)}
-.sc-b:hover .sv-lens{transform:translate(-40px,-38px)}
 .sv-l{fill:none;stroke:rgba(232,201,122,.4);stroke-width:1.2}
 .sv-node{fill:rgba(247,244,238,.05);stroke:rgba(232,201,122,.55);stroke-width:1}
 .sv-hl{fill:#E8C97A;stroke:none}
 .sv-flow{fill:none;stroke:var(--gold-l);stroke-width:2;stroke-linecap:round;stroke-dasharray:.08 .92;stroke-dashoffset:1;animation:plFlow 3s linear infinite}
 .sv-sign{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.6s var(--ease) .4s}
-.sc-grid.in .sv-sign{stroke-dashoffset:0}
 html:not(.js) .sv-sign{stroke-dashoffset:0}
 .sv-chk{transition:transform .5s var(--ease)}
-.sc-d:hover .sv-chk:nth-child(4){transform:translateX(4px)}
-.sc-d:hover .sv-chk:nth-child(5){transform:translateX(4px);transition-delay:.08s}
-.sc-d:hover .sv-chk:nth-child(6){transform:translateX(4px);transition-delay:.16s}
 .sv-badge{transform-box:fill-box;transform-origin:center;transition:transform .6s var(--ease)}
-.sc-e:hover .sv-badge{transform:scale(1.12) rotate(-4deg)}
 .sv-row{transition:transform .5s var(--ease)}
-.sc-f:hover .sv-row{transform:translateX(8px)}
-.sc-f:hover .sv-row:nth-of-type(2){transition-delay:.08s}
-.sc-f:hover .sv-row:nth-of-type(3){transition-delay:.16s}
 
 /* 03 planejamento */
 .pl{padding:var(--sec) var(--pad)}
@@ -647,12 +654,13 @@ html.js [data-fade].in{opacity:1}
   .pl-intro,.wy-foot{width:100%}
   .wy-foot{flex-direction:column;align-items:stretch;text-align:center}
   .st-head{display:flex;flex-direction:column;align-items:flex-start}
-  .sc-grid{grid-template-columns:1fr}
-  .sc-a,.sc-b,.sc-c,.sc-d,.sc-e,.sc-f{grid-column:auto;flex-direction:column;align-items:stretch;min-height:0}
-  .sc-a .sc-vis,.sc-f .sc-vis{order:-1}
-  .sc-f .sc-txt{flex:none}
-  .sc-vis{min-height:150px}
-  .sc:hover{transform:none}
+  .sq{grid-template-columns:1fr;margin-top:40px}
+  .sq-stage{display:none}
+  .sq-head{grid-template-columns:34px minmax(0,1fr) 28px;padding:18px 0}
+  .sq-item.is-active .sq-t{transform:none}
+  .sq-in{padding:0 0 22px}
+  .sq-mvis{position:relative;isolation:isolate;overflow:hidden;display:grid;place-items:center;padding:28px 22px;border-radius:14px}
+  .sq-mvis svg{display:block;width:100%;max-width:300px;height:auto;overflow:visible}
   /* planejamento: centered columns */
   .pl-head{align-items:center;text-align:center}
   .pl-head>div:first-child{justify-items:center}
@@ -912,17 +920,12 @@ html.js [data-fade].in{opacity:1}
       </div>
       <p class="st-intro" data-fade>Para médicos, clínicas, hospitais e demais profissionais de saúde. Quanto antes o caso chega ao escritório, mais opções de estratégia existem.</p>
     </div>
-
-    <div class="sc-grid" data-fade>
-      <a class="sc sc-a" href="#contato" data-area="Defesa em Processos do CRM/CFM">
-        <div class="sc-txt">
-          <span class="sc-n">01</span>
-          <h3>Recebi uma notificação do CRM</h3>
-          <p>Sindicâncias pedem resposta técnica e no prazo. A defesa começa na primeira manifestação.</p>
-          <span class="sc-area">Defesa em processos do CRM e CFM</span>
-        </div>
-        <div class="sc-vis" aria-hidden="true">
-          <svg viewBox="0 0 280 200">
+    <div class="sq" data-fade>
+      <div class="sq-list">
+        <article class="sq-item is-active" data-i="0">
+          <button class="sq-head" type="button" id="sqh-0" aria-expanded="true" aria-controls="sqp-0"><span class="sq-n">01</span><span class="sq-t">Recebi uma notificação do CRM</span><span class="sq-plus" aria-hidden="true"></span></button>
+          <div class="sq-panel" id="sqp-0" role="region" aria-labelledby="sqh-0"><div><div class="sq-in">
+            <div class="sq-mvis v0" aria-hidden="true"><svg viewBox="0 0 280 200">
             <rect x="30" y="86" width="220" height="104" rx="10" fill="rgba(247,244,238,.08)" stroke="rgba(247,244,238,.25)"/>
             <g class="sv-sheet">
               <rect x="54" y="20" width="172" height="150" rx="8" fill="#F7F4EE"/>
@@ -936,14 +939,15 @@ html.js [data-fade].in{opacity:1}
               <path d="M186 134l6 6 10-11" fill="none" stroke="#C9A84C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
             </g>
             <path d="M30 112L140 160L250 112V180a10 10 0 0 1-10 10H40a10 10 0 0 1-10-10Z" fill="#13295A" stroke="rgba(247,244,238,.25)"/>
-          </svg>
-        </div>
-        <span class="sc-go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span>
-      </a>
-
-      <a class="sc sc-b" href="#contato" data-area="Responsabilidade Civil Médica">
-        <div class="sc-vis" aria-hidden="true">
-          <svg viewBox="0 0 280 190">
+          </svg></div>
+            <p>Sindicâncias pedem resposta técnica e no prazo. A defesa começa na primeira manifestação.</p>
+            <a class="sq-cta" href="#contato" data-area="Defesa em Processos do CRM/CFM"><span>Defesa em processos do CRM e CFM</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12L12 4M5 4h7v7"/></svg></a>
+          </div></div></div>
+        </article>
+        <article class="sq-item" data-i="1">
+          <button class="sq-head" type="button" id="sqh-1" aria-expanded="false" aria-controls="sqp-1"><span class="sq-n">02</span><span class="sq-t">Fui processado por erro médico</span><span class="sq-plus" aria-hidden="true"></span></button>
+          <div class="sq-panel" id="sqp-1" role="region" aria-labelledby="sqh-1"><div><div class="sq-in">
+            <div class="sq-mvis v1" aria-hidden="true"><svg viewBox="0 0 280 190">
             <rect x="66" y="10" width="148" height="170" rx="8" fill="#fff" stroke="rgba(11,28,59,.12)"/>
             <rect x="82" y="26" width="58" height="7" rx="3.5" fill="#0B1C3B"/>
             <text x="198" y="32" text-anchor="end" class="sv-m" fill="#69738A">PROCESSO</text>
@@ -960,20 +964,15 @@ html.js [data-fade].in{opacity:1}
               <circle cx="190" cy="132" r="26" fill="rgba(255,255,255,.55)" stroke="#0B1C3B" stroke-width="4"/>
               <path d="M209 151l20 20" stroke="#0B1C3B" stroke-width="7" stroke-linecap="round"/>
             </g>
-          </svg>
-        </div>
-        <div class="sc-txt">
-          <span class="sc-n">02</span>
-          <h3>Fui processado por erro médico</h3>
-          <p>Análise do prontuário, da conduta adotada e da perícia para construir a defesa.</p>
-          <span class="sc-area">Responsabilidade civil médica</span>
-        </div>
-        <span class="sc-go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span>
-      </a>
-
-      <a class="sc sc-c" href="#contato" data-area="Consultoria Preventiva para Médicos">
-        <div class="sc-vis" aria-hidden="true">
-          <svg viewBox="0 0 280 180">
+          </svg></div>
+            <p>Análise do prontuário, da conduta adotada e da perícia para construir a defesa.</p>
+            <a class="sq-cta" href="#contato" data-area="Responsabilidade Civil Médica"><span>Responsabilidade civil médica</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12L12 4M5 4h7v7"/></svg></a>
+          </div></div></div>
+        </article>
+        <article class="sq-item" data-i="2">
+          <button class="sq-head" type="button" id="sqh-2" aria-expanded="false" aria-controls="sqp-2"><span class="sq-n">03</span><span class="sq-t">Vou abrir ou reestruturar uma clínica</span><span class="sq-plus" aria-hidden="true"></span></button>
+          <div class="sq-panel" id="sqp-2" role="region" aria-labelledby="sqh-2"><div><div class="sq-in">
+            <div class="sq-mvis v2" aria-hidden="true"><svg viewBox="0 0 280 180">
             <path class="sv-l" d="M80 44V60H200V44M140 60V76M140 106V124M70 124H210M70 124V138M140 124V138M210 124V138"/>
             <path class="sv-flow" pathLength="1" d="M80 44V60H140V76"/>
             <path class="sv-flow" pathLength="1" d="M140 106V124H210V138" style="animation-delay:1.4s"/>
@@ -982,20 +981,15 @@ html.js [data-fade].in{opacity:1}
             <rect class="sv-node sv-hl" x="92" y="76" width="96" height="30" rx="15"/><text x="140" y="95" text-anchor="middle" class="sv-t" fill="#0B1C3B">Clínica</text>
             <circle class="sv-node" cx="70" cy="152" r="13"/><circle class="sv-node" cx="140" cy="152" r="13"/><circle class="sv-node" cx="210" cy="152" r="13"/>
             <text x="140" y="178" text-anchor="middle" class="sv-m" fill="#E8C97A">PROFISSIONAIS</text>
-          </svg>
-        </div>
-        <div class="sc-txt">
-          <span class="sc-n">03</span>
-          <h3>Vou abrir ou reestruturar uma clínica</h3>
-          <p>Contratos entre sócios, com profissionais e com operadoras, organizados desde o início.</p>
-          <span class="sc-area">Consultoria preventiva</span>
-        </div>
-        <span class="sc-go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span>
-      </a>
-
-      <a class="sc sc-d" href="#contato" data-area="Consultoria Preventiva para Médicos">
-        <div class="sc-vis" aria-hidden="true">
-          <svg viewBox="0 0 280 190">
+          </svg></div>
+            <p>Contratos entre sócios, com profissionais e com operadoras, organizados desde o início.</p>
+            <a class="sq-cta" href="#contato" data-area="Consultoria Preventiva para Médicos"><span>Consultoria preventiva</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12L12 4M5 4h7v7"/></svg></a>
+          </div></div></div>
+        </article>
+        <article class="sq-item" data-i="3">
+          <button class="sq-head" type="button" id="sqh-3" aria-expanded="false" aria-controls="sqp-3"><span class="sq-n">04</span><span class="sq-t">Preciso revisar termos e prontuários</span><span class="sq-plus" aria-hidden="true"></span></button>
+          <div class="sq-panel" id="sqp-3" role="region" aria-labelledby="sqh-3"><div><div class="sq-in">
+            <div class="sq-mvis v3" aria-hidden="true"><svg viewBox="0 0 280 190">
             <rect x="62" y="8" width="156" height="176" rx="8" fill="#F7F4EE"/>
             <rect x="78" y="24" width="72" height="7" rx="3.5" fill="#0B1C3B"/>
             <text x="202" y="30" text-anchor="end" class="sv-m" fill="#866618">TERMO</text>
@@ -1005,20 +999,15 @@ html.js [data-fade].in{opacity:1}
             <path d="M80 160H200" stroke="#B8B2A6" stroke-width="1"/>
             <path class="sv-sign" pathLength="1" d="M86 152C96 132 104 166 116 148S136 136 146 152S168 142 176 146S188 150 196 140" fill="none" stroke="#0B1C3B" stroke-width="2.2" stroke-linecap="round"/>
             <text x="80" y="174" class="sv-m" fill="#69738A">ASSINATURA</text>
-          </svg>
-        </div>
-        <div class="sc-txt">
-          <span class="sc-n">04</span>
-          <h3>Preciso revisar termos e prontuários</h3>
-          <p>Termos de consentimento e documentação clínica que protegem o médico e o paciente.</p>
-          <span class="sc-area">Consultoria preventiva</span>
-        </div>
-        <span class="sc-go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span>
-      </a>
-
-      <a class="sc sc-e" href="#contato" data-area="Consultoria Preventiva para Médicos">
-        <div class="sc-vis" aria-hidden="true">
-          <svg viewBox="0 0 280 190">
+          </svg></div>
+            <p>Termos de consentimento e documentação clínica que protegem o médico e o paciente.</p>
+            <a class="sq-cta" href="#contato" data-area="Consultoria Preventiva para Médicos"><span>Consultoria preventiva</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12L12 4M5 4h7v7"/></svg></a>
+          </div></div></div>
+        </article>
+        <article class="sq-item" data-i="4">
+          <button class="sq-head" type="button" id="sqh-4" aria-expanded="false" aria-controls="sqp-4"><span class="sq-n">05</span><span class="sq-t">Tenho dúvidas sobre publicidade médica</span><span class="sq-plus" aria-hidden="true"></span></button>
+          <div class="sq-panel" id="sqp-4" role="region" aria-labelledby="sqh-4"><div><div class="sq-in">
+            <div class="sq-mvis v4" aria-hidden="true"><svg viewBox="0 0 280 190">
             <rect x="94" y="6" width="92" height="178" rx="18" fill="#fff" stroke="#0B1C3B" stroke-width="3"/>
             <rect x="126" y="13" width="28" height="5" rx="2.5" fill="#0B1C3B"/>
             <circle cx="111" cy="34" r="7" fill="#C9A84C"/>
@@ -1033,26 +1022,15 @@ html.js [data-fade].in{opacity:1}
               <path d="M163 159l4 4 7-8" fill="none" stroke="#0B1C3B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               <text x="208" y="163" text-anchor="middle" class="sv-t" fill="#0B1C3B">Revisado</text>
             </g>
-          </svg>
-        </div>
-        <div class="sc-txt">
-          <span class="sc-n">05</span>
-          <h3>Tenho dúvidas sobre publicidade médica</h3>
-          <p>Comunicação nas redes sociais dentro das regras do CFM, sem expor o profissional.</p>
-          <span class="sc-area">Consultoria preventiva</span>
-        </div>
-        <span class="sc-go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span>
-      </a>
-
-      <a class="sc sc-f" href="#contato" data-area="Responsabilidade Civil Médica">
-        <div class="sc-txt">
-          <span class="sc-n">06</span>
-          <h3>Conflito com plano de saúde ou hospital</h3>
-          <p>Glosas, descredenciamentos e contratos com operadoras e instituições de saúde.</p>
-          <span class="sc-area">Contratos com operadoras</span>
-        </div>
-        <div class="sc-vis" aria-hidden="true">
-          <svg viewBox="0 0 420 150">
+          </svg></div>
+            <p>Comunicação nas redes sociais dentro das regras do CFM, sem expor o profissional.</p>
+            <a class="sq-cta" href="#contato" data-area="Consultoria Preventiva para Médicos"><span>Consultoria preventiva</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12L12 4M5 4h7v7"/></svg></a>
+          </div></div></div>
+        </article>
+        <article class="sq-item" data-i="5">
+          <button class="sq-head" type="button" id="sqh-5" aria-expanded="false" aria-controls="sqp-5"><span class="sq-n">06</span><span class="sq-t">Conflito com plano de saúde ou hospital</span><span class="sq-plus" aria-hidden="true"></span></button>
+          <div class="sq-panel" id="sqp-5" role="region" aria-labelledby="sqh-5"><div><div class="sq-in">
+            <div class="sq-mvis v5" aria-hidden="true"><svg viewBox="0 0 420 150">
             <rect x="0" y="0" width="420" height="150" rx="12" fill="rgba(247,244,238,.05)" stroke="rgba(247,244,238,.14)"/>
             <text x="22" y="26" class="sv-m" fill="#8FABC7">PROCEDIMENTO</text>
             <text x="398" y="26" text-anchor="end" class="sv-m" fill="#8FABC7">STATUS</text>
@@ -1060,10 +1038,93 @@ html.js [data-fade].in{opacity:1}
             <g class="sv-row"><rect x="22" y="52" width="150" height="7" rx="3.5" fill="rgba(247,244,238,.5)"/><rect x="292" y="46" width="106" height="20" rx="10" fill="none" stroke="#8FABC7"/><text x="345" y="60" text-anchor="middle" class="sv-t" fill="#8FABC7">Em análise</text></g>
             <g class="sv-row"><rect x="22" y="90" width="120" height="7" rx="3.5" fill="rgba(247,244,238,.5)"/><rect x="292" y="84" width="106" height="20" rx="10" fill="#C9A84C"/><text x="345" y="98" text-anchor="middle" class="sv-t" fill="#0B1C3B">Recurso enviado</text></g>
             <g class="sv-row"><rect x="22" y="128" width="170" height="7" rx="3.5" fill="rgba(247,244,238,.5)"/><rect x="292" y="122" width="106" height="20" rx="10" fill="#F7F4EE"/><text x="345" y="136" text-anchor="middle" class="sv-t" fill="#0B1C3B">Contrato revisto</text></g>
-          </svg>
-        </div>
-        <span class="sc-go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span>
-      </a>
+          </svg></div>
+            <p>Glosas, descredenciamentos e contratos com operadoras e instituições de saúde.</p>
+            <a class="sq-cta" href="#contato" data-area="Responsabilidade Civil Médica"><span>Contratos com operadoras</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12L12 4M5 4h7v7"/></svg></a>
+          </div></div></div>
+        </article>
+      </div>
+      <div class="sq-stage" aria-hidden="true">
+        <div class="sq-vis v0 is-active"><svg viewBox="0 0 280 200">
+            <rect x="30" y="86" width="220" height="104" rx="10" fill="rgba(247,244,238,.08)" stroke="rgba(247,244,238,.25)"/>
+            <g class="sv-sheet">
+              <rect x="54" y="20" width="172" height="150" rx="8" fill="#F7F4EE"/>
+              <rect x="70" y="36" width="64" height="8" rx="4" fill="#0B1C3B"/>
+              <text x="210" y="43" text-anchor="end" class="sv-m" fill="#866618">SINDICÂNCIA</text>
+              <rect x="70" y="60" width="140" height="5" rx="2.5" fill="#D9D3C7"/>
+              <rect x="70" y="72" width="118" height="5" rx="2.5" fill="#D9D3C7"/>
+              <rect x="70" y="84" width="132" height="5" rx="2.5" fill="#D9D3C7"/>
+              <rect x="70" y="96" width="86" height="5" rx="2.5" fill="#D9D3C7"/>
+              <circle cx="194" cy="134" r="17" fill="none" stroke="#C9A84C" stroke-width="2"/>
+              <path d="M186 134l6 6 10-11" fill="none" stroke="#C9A84C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <path d="M30 112L140 160L250 112V180a10 10 0 0 1-10 10H40a10 10 0 0 1-10-10Z" fill="#13295A" stroke="rgba(247,244,238,.25)"/>
+          </svg><span class="sq-cap">01 / 06 · Defesa em processos do CRM e CFM</span></div>
+        <div class="sq-vis v1"><svg viewBox="0 0 280 190">
+            <rect x="66" y="10" width="148" height="170" rx="8" fill="#fff" stroke="rgba(11,28,59,.12)"/>
+            <rect x="82" y="26" width="58" height="7" rx="3.5" fill="#0B1C3B"/>
+            <text x="198" y="32" text-anchor="end" class="sv-m" fill="#69738A">PROCESSO</text>
+            <rect x="82" y="50" width="116" height="5" rx="2.5" fill="#E4DED2"/>
+            <rect x="78" y="60" width="104" height="11" rx="3" fill="rgba(201,168,76,.35)"/>
+            <rect x="82" y="63" width="96" height="5" rx="2.5" fill="#C9B98E"/>
+            <rect x="82" y="78" width="110" height="5" rx="2.5" fill="#E4DED2"/>
+            <rect x="82" y="90" width="92" height="5" rx="2.5" fill="#E4DED2"/>
+            <rect x="78" y="100" width="118" height="11" rx="3" fill="rgba(201,168,76,.35)"/>
+            <rect x="82" y="103" width="110" height="5" rx="2.5" fill="#C9B98E"/>
+            <rect x="82" y="118" width="100" height="5" rx="2.5" fill="#E4DED2"/>
+            <rect x="82" y="130" width="78" height="5" rx="2.5" fill="#E4DED2"/>
+            <g class="sv-lens">
+              <circle cx="190" cy="132" r="26" fill="rgba(255,255,255,.55)" stroke="#0B1C3B" stroke-width="4"/>
+              <path d="M209 151l20 20" stroke="#0B1C3B" stroke-width="7" stroke-linecap="round"/>
+            </g>
+          </svg><span class="sq-cap">02 / 06 · Responsabilidade civil médica</span></div>
+        <div class="sq-vis v2"><svg viewBox="0 0 280 180">
+            <path class="sv-l" d="M80 44V60H200V44M140 60V76M140 106V124M70 124H210M70 124V138M140 124V138M210 124V138"/>
+            <path class="sv-flow" pathLength="1" d="M80 44V60H140V76"/>
+            <path class="sv-flow" pathLength="1" d="M140 106V124H210V138" style="animation-delay:1.4s"/>
+            <rect class="sv-node" x="38" y="14" width="84" height="30" rx="8"/><text x="80" y="33" text-anchor="middle" class="sv-t" fill="#F7F4EE">Sócio</text>
+            <rect class="sv-node" x="158" y="14" width="84" height="30" rx="8"/><text x="200" y="33" text-anchor="middle" class="sv-t" fill="#F7F4EE">Sócio</text>
+            <rect class="sv-node sv-hl" x="92" y="76" width="96" height="30" rx="15"/><text x="140" y="95" text-anchor="middle" class="sv-t" fill="#0B1C3B">Clínica</text>
+            <circle class="sv-node" cx="70" cy="152" r="13"/><circle class="sv-node" cx="140" cy="152" r="13"/><circle class="sv-node" cx="210" cy="152" r="13"/>
+            <text x="140" y="178" text-anchor="middle" class="sv-m" fill="#E8C97A">PROFISSIONAIS</text>
+          </svg><span class="sq-cap">03 / 06 · Consultoria preventiva</span></div>
+        <div class="sq-vis v3"><svg viewBox="0 0 280 190">
+            <rect x="62" y="8" width="156" height="176" rx="8" fill="#F7F4EE"/>
+            <rect x="78" y="24" width="72" height="7" rx="3.5" fill="#0B1C3B"/>
+            <text x="202" y="30" text-anchor="end" class="sv-m" fill="#866618">TERMO</text>
+            <g class="sv-chk"><rect x="78" y="46" width="14" height="14" rx="3" fill="#0B1C3B"/><path d="M81 53l3 3 5-6" fill="none" stroke="#E8C97A" stroke-width="1.8" stroke-linecap="round"/><rect x="100" y="50" width="96" height="5" rx="2.5" fill="#D9D3C7"/></g>
+            <g class="sv-chk"><rect x="78" y="70" width="14" height="14" rx="3" fill="#0B1C3B"/><path d="M81 77l3 3 5-6" fill="none" stroke="#E8C97A" stroke-width="1.8" stroke-linecap="round"/><rect x="100" y="74" width="84" height="5" rx="2.5" fill="#D9D3C7"/></g>
+            <g class="sv-chk"><rect x="78" y="94" width="14" height="14" rx="3" fill="#0B1C3B"/><path d="M81 101l3 3 5-6" fill="none" stroke="#E8C97A" stroke-width="1.8" stroke-linecap="round"/><rect x="100" y="98" width="102" height="5" rx="2.5" fill="#D9D3C7"/></g>
+            <path d="M80 160H200" stroke="#B8B2A6" stroke-width="1"/>
+            <path class="sv-sign" pathLength="1" d="M86 152C96 132 104 166 116 148S136 136 146 152S168 142 176 146S188 150 196 140" fill="none" stroke="#0B1C3B" stroke-width="2.2" stroke-linecap="round"/>
+            <text x="80" y="174" class="sv-m" fill="#69738A">ASSINATURA</text>
+          </svg><span class="sq-cap">04 / 06 · Consultoria preventiva</span></div>
+        <div class="sq-vis v4"><svg viewBox="0 0 280 190">
+            <rect x="94" y="6" width="92" height="178" rx="18" fill="#fff" stroke="#0B1C3B" stroke-width="3"/>
+            <rect x="126" y="13" width="28" height="5" rx="2.5" fill="#0B1C3B"/>
+            <circle cx="111" cy="34" r="7" fill="#C9A84C"/>
+            <rect x="122" y="31" width="40" height="5" rx="2.5" fill="#D9D3C7"/>
+            <rect x="104" y="48" width="72" height="62" rx="6" fill="#0D2248"/>
+            <path d="M104 98l18-18 14 12 12-10 28 24V104a6 6 0 0 1-6 6h-60a6 6 0 0 1-6-6z" fill="#1A3A6B"/>
+            <circle cx="160" cy="64" r="6" fill="#E8C97A"/>
+            <rect x="104" y="118" width="66" height="5" rx="2.5" fill="#D9D3C7"/>
+            <rect x="104" y="130" width="52" height="5" rx="2.5" fill="#D9D3C7"/>
+            <g class="sv-badge">
+              <rect x="150" y="146" width="92" height="26" rx="13" fill="#C9A84C"/>
+              <path d="M163 159l4 4 7-8" fill="none" stroke="#0B1C3B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="208" y="163" text-anchor="middle" class="sv-t" fill="#0B1C3B">Revisado</text>
+            </g>
+          </svg><span class="sq-cap">05 / 06 · Consultoria preventiva</span></div>
+        <div class="sq-vis v5"><svg viewBox="0 0 420 150">
+            <rect x="0" y="0" width="420" height="150" rx="12" fill="rgba(247,244,238,.05)" stroke="rgba(247,244,238,.14)"/>
+            <text x="22" y="26" class="sv-m" fill="#8FABC7">PROCEDIMENTO</text>
+            <text x="398" y="26" text-anchor="end" class="sv-m" fill="#8FABC7">STATUS</text>
+            <path d="M22 38H398M22 76H398M22 114H398" stroke="rgba(247,244,238,.12)"/>
+            <g class="sv-row"><rect x="22" y="52" width="150" height="7" rx="3.5" fill="rgba(247,244,238,.5)"/><rect x="292" y="46" width="106" height="20" rx="10" fill="none" stroke="#8FABC7"/><text x="345" y="60" text-anchor="middle" class="sv-t" fill="#8FABC7">Em análise</text></g>
+            <g class="sv-row"><rect x="22" y="90" width="120" height="7" rx="3.5" fill="rgba(247,244,238,.5)"/><rect x="292" y="84" width="106" height="20" rx="10" fill="#C9A84C"/><text x="345" y="98" text-anchor="middle" class="sv-t" fill="#0B1C3B">Recurso enviado</text></g>
+            <g class="sv-row"><rect x="22" y="128" width="170" height="7" rx="3.5" fill="rgba(247,244,238,.5)"/><rect x="292" y="122" width="106" height="20" rx="10" fill="#F7F4EE"/><text x="345" y="136" text-anchor="middle" class="sv-t" fill="#0B1C3B">Contrato revisto</text></g>
+          </svg><span class="sq-cap">06 / 06 · Contratos com operadoras</span></div>
+      </div>
     </div>
   </section>
 
@@ -1545,6 +1606,17 @@ html.js [data-fade].in{opacity:1}
   setTab(0);
   document.querySelectorAll('a[data-tab]').forEach(function(a){
     a.addEventListener('click', function(){ autoplay = false; setTab(+a.dataset.tab); });
+  });
+
+  // Quando procurar: one situation open at a time, its illustration in the panel beside the list
+  var sqItems = [].slice.call(document.querySelectorAll('.sq-item')), sqVis = document.querySelectorAll('.sq-vis');
+  function setSq(i){
+    sqItems.forEach(function(it, k){ it.classList.toggle('is-active', k === i); it.querySelector('.sq-head').setAttribute('aria-expanded', k === i); });
+    sqVis.forEach(function(v, k){ v.classList.toggle('is-active', k === i); });
+  }
+  sqItems.forEach(function(it, k){
+    it.querySelector('.sq-head').addEventListener('click', function(){ setSq(k); });
+    it.addEventListener('mouseenter', function(){ if (!mobile()) setSq(k); });
   });
 
   // Diferenciais: the panel under the cursor opens
