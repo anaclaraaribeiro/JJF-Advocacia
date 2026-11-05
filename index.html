@@ -6,8 +6,8 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="favicon.svg">
 <meta name="theme-color" content="#0B1C3B">
-<title>JJF Advocacia &amp; Consultoria</title>
-<meta name="description" content="JJF Advocacia &amp; Consultoria. Sede em Londrina, Paraná, com atendimento em todo o Brasil. Direito Tributário e Direito Médico, com consultoria preventiva e um sócio responsável em todos os casos.">
+<title>Gabriel Filemon Advocacia</title>
+<meta name="description" content="Gabriel Filemon Advocacia. Foco em Direito Médico: prevenção, defesa em processos éticos e responsabilidade civil para médicos, clínicas e instituições de saúde. Atuação também em Direito Civil, de Família, Tributário e Trabalhista.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap">
@@ -121,7 +121,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .hero-body{position:relative;z-index:2;flex:1;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:auto 1fr;column-gap:24px;margin-top:clamp(36px,8vh,110px)}
 .hero-right{grid-column:7 / span 5;display:grid;gap:34px;justify-items:start}
 .hero-right::before{content:"";width:48px;height:1px;background:var(--gold)}
-.hero-statement{font-family:var(--display);font-size:clamp(20px,1.75vw,30px);line-height:1.28;letter-spacing:-.02em;max-width:24ch;text-wrap:balance}
+.hero-statement{font-family:var(--display);font-size:clamp(20px,1.75vw,30px);line-height:1.28;letter-spacing:-.02em;max-width:30ch;text-wrap:balance}
 .hero-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .hero-meta{grid-column:7 / -1;align-self:end;display:flex;gap:clamp(28px,5vw,80px);padding-bottom:clamp(20px,3.5vh,44px);font-size:14px;color:var(--off-2)}
 .hero-meta p{display:flex;align-items:center;gap:12px}
@@ -164,7 +164,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 html:not(.js) .pc-paid,html:not(.js) .pc-due{stroke-dashoffset:0}
 html:not(.js) .pc-area,html:not(.js) .pc-chip{opacity:1}
 html:not(.js) .pc-dots circle{transform:none}
-.pc-x{display:grid;grid-template-columns:repeat(5,1fr);margin:6px 2.5% 0;text-align:center;font-size:11px;color:#69738A}
+.pc-x{display:grid;grid-template-columns:repeat(5,1fr);margin:6px 0 0;text-align:center;font-size:10px;color:#69738A}
 .pc-leg{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 16px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line-l);font-size:12px;color:#465267}
 .pc-leg span{display:inline-flex;align-items:center;gap:6px}
 .pc-leg i{width:14px;height:3px;border-radius:2px}
@@ -262,6 +262,9 @@ html:not(.js) .pc-dots circle{transform:none}
 .pl-head h2{max-width:11ch}
 .pl-intro{grid-column:9 / -1;display:grid;gap:28px;justify-items:start;color:var(--off-2)}
 .pl-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:clamp(64px,10vh,110px);border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d)}
+.pl-cols.pl-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.pl-4 .pl-col{padding-left:clamp(18px,1.8vw,30px);padding-right:clamp(18px,1.8vw,30px)}
+.pl-4 .pl-col h3{font-size:clamp(24px,2vw,32px)}
 .pl-col{position:relative;display:grid;align-content:start;gap:16px;padding:36px clamp(20px,2.4vw,40px) 44px;border-left:1px solid var(--line-d);transition:background-color .5s var(--ease)}
 .pl-col:first-child{border-left:0}
 .pl-col::before{content:"";position:absolute;left:-1px;right:0;top:-1px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:0 50%;transition:transform .7s var(--ease)}
@@ -512,6 +515,9 @@ html.js [data-fade].in{opacity:1}
   .hero-right{grid-column:7 / -1}
   .ar-svcs{grid-template-columns:1fr}
   .pl-intro{grid-column:1 / -1}
+  .pl-cols.pl-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pl-4 .pl-col:nth-child(3){border-left:0}
+  .pl-4 .pl-col:nth-child(n+3){border-top:1px solid var(--line-d)}
   .ft-status{grid-column:7 / -1}
 }
 @media (max-width:860px){
@@ -541,7 +547,7 @@ html.js [data-fade].in{opacity:1}
   .uc-body{padding:22px 18px 24px}
   .uc{left:7%;right:7%}
   .pl-head{display:flex;flex-direction:column;align-items:flex-start}
-  .pl-cols{grid-template-columns:1fr}
+  .pl-cols,.pl-cols.pl-4{grid-template-columns:1fr}
   .pl-col{border-left:0;border-top:1px solid var(--line-d);padding:32px 0 36px}
   .pl-col:first-child{border-top:0}
   .pl-arrow{display:none}
@@ -641,10 +647,10 @@ html.js [data-fade].in{opacity:1}
 
 <header class="nb" id="navbar">
   <div class="nb-in">
-    <a class="brand" href="#topo" aria-label="JJF Advocacia e Consultoria, início"><svg class="logo" viewBox="0 0 192 100" aria-hidden="true"><path d="M45 0V75A19.5 19.5 0 0 1 6 75M104 0V75A19.5 19.5 0 0 1 65 75M130 0V100M124.5 5.5H172M124.5 48H164" fill="none" stroke="currentColor" stroke-width="11"/><rect x="180" y="89" width="11" height="11" rx="1.5" fill="#C9A84C"/></svg><small>Advocacia &amp; Consultoria</small></a>
+    <a class="brand" href="#topo" aria-label="Gabriel Filemon Advocacia, início"><svg class="logo" viewBox="0 0 182 100" aria-hidden="true"><path d="M84.1 21.4A44.5 44.5 0 1 0 94.5 50H57M120 0V100M114.5 5.5H162M114.5 48H154" fill="none" stroke="currentColor" stroke-width="11"/><rect x="170" y="89" width="11" height="11" rx="1.5" fill="#C9A84C"/></svg><small>Gabriel Filemon Advocacia</small></a>
     <nav class="nav" aria-label="Principal">
-      <a class="ul" href="#atuacao">Atuação</a>
-      <a class="ul" href="#planejamento">Planejamento Fiscal</a>
+      <a class="ul" href="#atuacao">Direito Médico</a>
+      <a class="ul" href="#outras-areas">Outras áreas</a>
       <a class="ul" href="#metodologia">Metodologia</a>
       <a class="ul" href="#contato">Contato</a>
     </nav>
@@ -665,34 +671,34 @@ html.js [data-fade].in{opacity:1}
     </figure>
     <div class="hero-body">
       <div class="hero-right">
-        <p class="hero-statement">Estratégia fiscal e proteção jurídica, com um sócio responsável em todos os casos.</p>
+        <p class="hero-statement">Direito Médico para médicos, clínicas e instituições de saúde, com atendimento direto do advogado.</p>
         <div class="hero-actions">
           <a class="btn" href="#contato">Agendar consulta<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></a>
-          <a class="btn btn-ghost" href="#atuacao">Nossos serviços<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 2v11M4 9l4 4 4-4"/></svg><svg viewBox="0 0 16 16"><path d="M8 2v11M4 9l4 4 4-4"/></svg></span></a>
+          <a class="btn btn-ghost" href="#atuacao">Áreas de atuação<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 2v11M4 9l4 4 4-4"/></svg><svg viewBox="0 0 16 16"><path d="M8 2v11M4 9l4 4 4-4"/></svg></span></a>
         </div>
       </div>
       <div class="hero-meta">
-        <p><i></i>Direito Tributário e Direito Médico</p>
-        <p><i></i>Londrina, PR · Atendimento em todo&nbsp;o&nbsp;Brasil</p>
+        <p><i></i>Direito Médico e da Saúde</p>
+        <p><i></i>Prevenção, defesa e responsabilidade civil</p>
       </div>
     </div>
-    <h1 class="hero-h"><span class="ln"><span>Segurança jurídica</span></span><span class="ln"><span>que transforma negócios.</span></span></h1>
+    <h1 class="hero-h"><span class="ln"><span>Segurança jurídica</span></span><span class="ln"><span>para quem cuida da saúde.</span></span></h1>
   </section>
 
   <!-- 01 Problema -->
   <section class="sec paper tex prob" aria-labelledby="prob-h">
     <div class="prob-main">
-      <p class="tag"><b>01</b>Elisão fiscal e recuperação tributária</p>
-      <h2 id="prob-h" data-rise>Muitas empresas pagam tributos a mais sem saber.</h2>
-      <p class="lead" data-fade>A elisão fiscal e a recuperação tributária são instrumentos legítimos e poderosos para preservar o patrimônio empresarial.</p>
+      <p class="tag"><b>01</b>Prevenção</p>
+      <h2 id="prob-h" data-rise>Muitos processos contra médicos começam na documentação.</h2>
+      <p class="lead" data-fade>Contratos, termos de consentimento e prontuários bem estruturados são a primeira defesa do médico. Prevenir custa menos do que se defender.</p>
     </div>
     <div class="prob-foot">
-      <a class="btn" href="#contato" data-area="Recuperação Tributária">Solicitar diagnóstico<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></a>
-      <a class="btn btn-ghost" href="#planejamento">Como funciona<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 2v11M4 9l4 4 4-4"/></svg><svg viewBox="0 0 16 16"><path d="M8 2v11M4 9l4 4 4-4"/></svg></span></a>
+      <a class="btn" href="#contato" data-area="Consultoria Preventiva para Médicos">Solicitar diagnóstico<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></a>
+      <a class="btn btn-ghost" href="#metodologia">Como funciona<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 2v11M4 9l4 4 4-4"/></svg><svg viewBox="0 0 16 16"><path d="M8 2v11M4 9l4 4 4-4"/></svg></span></a>
     </div>
     <figure class="ph hov prob-ph" data-fade>
       <div class="ph-in"><img src="img/blur.jpg" alt="Pessoa em movimento, desfocada, diante de uma parede clara" data-parallax loading="lazy"></div>
-      <div class="prob-chart" aria-hidden="true"><div class="uc-top"><span class="uc-menu"><i></i></span><span class="uc-t">Revisão tributária</span><span class="uc-av"><svg viewBox="0 0 192 100"><path d="M45 0V75A19.5 19.5 0 0 1 6 75M104 0V75A19.5 19.5 0 0 1 65 75M130 0V100M124.5 5.5H172M124.5 48H164" fill="none" stroke="currentColor" stroke-width="13"/></svg></span></div><div class="pc-body"><p class="uc-h">Tributos pagos a mais</p><p class="uc-s"><i></i>Últimos 5 anos</p><svg class="pc-svg" viewBox="0 0 300 150"><defs><linearGradient id="pc-gap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C9A84C" stop-opacity=".55"/><stop offset="1" stop-color="#C9A84C" stop-opacity=".12"/></linearGradient></defs><path class="pc-grid" d="M10 30H290M10 70H290M10 110H290"/><path class="pc-base" d="M10 136H290"/><path class="pc-under" d="M20 92C52 92 53 84 85 84C117 84 118 98 150 98C182 98 183 78 215 78C247 78 248 88 280 88V136H20Z"/><path class="pc-area" d="M20 52C52 52 53 40 85 40C117 40 118 58 150 58C182 58 183 30 215 30C247 30 248 44 280 44L280 88C248 88 247 78 215 78C183 78 182 98 150 98C118 98 117 84 85 84C53 84 52 92 20 92Z"/><path class="pc-due" pathLength="1" d="M20 92C52 92 53 84 85 84C117 84 118 98 150 98C182 98 183 78 215 78C247 78 248 88 280 88"/><path class="pc-paid" pathLength="1" d="M20 52C52 52 53 40 85 40C117 40 118 58 150 58C182 58 183 30 215 30C247 30 248 44 280 44"/><path class="pc-mark" d="M215 32V76"/><g class="pc-dots"><circle cx="215" cy="30" r="4.5" class="pc-dp"/><circle cx="215" cy="78" r="4.5" class="pc-dd"/></g><g class="pc-chip"><rect x="160" y="2" width="110" height="20" rx="10"/><text x="215" y="15.5" text-anchor="middle">Diferença recuperável</text></g></svg><div class="pc-x"><span>Ano 1</span><span>Ano 2</span><span>Ano 3</span><span>Ano 4</span><span>Ano 5</span></div><div class="pc-leg"><span><i class="p"></i>Pago</span><span><i class="d"></i>Devido</span><span><i class="g"></i>A recuperar</span></div></div></div>
+      <div class="prob-chart" aria-hidden="true"><div class="uc-top"><span class="uc-menu"><i></i></span><span class="uc-t">Diagnóstico preventivo</span><span class="uc-av"><svg viewBox="0 0 182 100"><path d="M84.1 21.4A44.5 44.5 0 1 0 94.5 50H57M120 0V100M114.5 5.5H162M114.5 48H154" fill="none" stroke="currentColor" stroke-width="13"/></svg></span></div><div class="pc-body"><p class="uc-h">Exposição a riscos</p><p class="uc-s"><i></i>Consultório e clínica</p><svg class="pc-svg" viewBox="0 0 300 150"><defs><linearGradient id="pc-gap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C9A84C" stop-opacity=".55"/><stop offset="1" stop-color="#C9A84C" stop-opacity=".12"/></linearGradient></defs><path class="pc-grid" d="M10 30H290M10 70H290M10 110H290"/><path class="pc-base" d="M10 136H290"/><path class="pc-under" d="M20 60C52 60 53 74 85 74C117 74 118 88 150 88C182 88 183 100 215 100C247 100 248 110 280 110V136H20Z"/><path class="pc-area" d="M20 46C52 46 53 42 85 42C117 42 118 40 150 40C182 40 183 36 215 36C247 36 248 34 280 34L280 110C248 110 247 100 215 100C183 100 182 88 150 88C118 88 117 74 85 74C53 74 52 60 20 60Z"/><path class="pc-due" pathLength="1" d="M20 60C52 60 53 74 85 74C117 74 118 88 150 88C182 88 183 100 215 100C247 100 248 110 280 110"/><path class="pc-paid" pathLength="1" d="M20 46C52 46 53 42 85 42C117 42 118 40 150 40C182 40 183 36 215 36C247 36 248 34 280 34"/><path class="pc-mark" d="M215 38V98"/><g class="pc-dots"><circle cx="215" cy="36" r="4.5" class="pc-dp"/><circle cx="215" cy="100" r="4.5" class="pc-dd"/></g><g class="pc-chip"><rect x="170" y="4" width="90" height="20" rx="10"/><text x="215" y="17.5" text-anchor="middle">Risco reduzido</text></g></svg><div class="pc-x"><span>Diagnóstico</span><span>Contratos</span><span>Termos</span><span>Prontuário</span><span>Revisão</span></div><div class="pc-leg"><span><i class="p"></i>Sem prevenção</span><span><i class="d"></i>Com acompanhamento</span><span><i class="g"></i>Risco evitado</span></div></div></div>
     </figure>
   </section>
 
@@ -701,61 +707,61 @@ html.js [data-fade].in{opacity:1}
     <div class="flute-strips" aria-hidden="true"></div>
     <div class="flute-tint" aria-hidden="true"></div>
     <div class="flute-c">
-      <p class="flute-k">Direito Tributário <i></i> Direito Médico</p>
+      <p class="flute-k">Direito Médico <i></i> Direito da Saúde</p>
       <h2 class="h-xl flute-title" id="flute-h">Especialização que faz a diferença<span class="gold">.</span></h2>
     </div>
   </section>
 
-  <!-- 02 Áreas -->
+  <!-- 02 Direito Médico -->
   <section class="sec paper tex ar" id="atuacao" aria-labelledby="ar-h">
     <div class="ar-head">
-      <p class="tag"><b>02</b>Áreas de atuação</p>
-      <h2 id="ar-h" data-rise>Duas especialidades, <span class="muted">conectadas pela consultoria preventiva.</span></h2>
+      <p class="tag"><b>02</b>Direito Médico</p>
+      <h2 id="ar-h" data-rise>Proteção jurídica <span class="muted">do consultório ao tribunal.</span></h2>
     </div>
-    <div class="ar-tabs" role="tablist" aria-label="Áreas de atuação">
-      <button class="ar-tab is-active" role="tab" id="art-0" aria-selected="true" aria-controls="arp-0" data-i="0"><span class="tl">Direito </span>Tributário<i class="ar-prog"></i></button>
-      <button class="ar-tab" role="tab" id="art-1" aria-selected="false" aria-controls="arp-1" data-i="1" tabindex="-1"><span class="tl">Direito </span>Médico<i class="ar-prog"></i></button>
-      <button class="ar-tab" role="tab" id="art-2" aria-selected="false" aria-controls="arp-2" data-i="2" tabindex="-1"><span class="tl">Consultoria </span>Preventiva<i class="ar-prog"></i></button>
+    <div class="ar-tabs" role="tablist" aria-label="Direito Médico">
+      <button class="ar-tab is-active" role="tab" id="art-0" aria-selected="true" aria-controls="arp-0" data-i="0"><span class="tl">Consultoria </span>Preventiva<i class="ar-prog"></i></button>
+      <button class="ar-tab" role="tab" id="art-1" aria-selected="false" aria-controls="arp-1" data-i="1" tabindex="-1"><span class="tl">Defesa </span>CRM/CFM<i class="ar-prog"></i></button>
+      <button class="ar-tab" role="tab" id="art-2" aria-selected="false" aria-controls="arp-2" data-i="2" tabindex="-1"><span class="tl">Responsabilidade </span>Civil<i class="ar-prog"></i></button>
     </div>
     <div class="ar-stage">
       <div class="ar-vis" aria-hidden="true">
-        <img class="ar-bg is-active" src="img/tributario.jpg" alt="" loading="lazy">
+        <img class="ar-bg is-active" src="img/preventiva.jpg" alt="" loading="lazy">
         <img class="ar-bg" src="img/medico.jpg" alt="" loading="lazy">
-        <img class="ar-bg" src="img/preventiva.jpg" alt="" loading="lazy">
+        <img class="ar-bg" src="img/tributario.jpg" alt="" loading="lazy">
 
         <div class="uc is-active">
-          <div class="uc-top"><span class="uc-menu"><i></i></span><span class="uc-t">Revisão tributária</span><span class="uc-av"><svg viewBox="0 0 192 100"><path d="M45 0V75A19.5 19.5 0 0 1 6 75M104 0V75A19.5 19.5 0 0 1 65 75M130 0V100M124.5 5.5H172M124.5 48H164" fill="none" stroke="currentColor" stroke-width="13"/></svg></span></div>
-          <div class="uc-body">
-            <p class="uc-h">Créditos em análise</p>
-            <p class="uc-s"><i></i>Últimos 5 anos</p>
-            <ul class="uc-rows">
-              <li><span>PIS/COFINS</span><span class="uc-bar"><i style="--w:.86"></i></span><em class="ok">Revisado</em></li>
-              <li><span>ICMS</span><span class="uc-bar"><i style="--w:.66"></i></span><em class="ok">Revisado</em></li>
-              <li><span>ISS</span><span class="uc-bar"><i style="--w:.42"></i></span><em>Em análise</em></li>
-              <li><span>Demais tributos</span><span class="uc-bar"><i style="--w:.2"></i></span><em>Em análise</em></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="uc">
-          <div class="uc-top"><span class="uc-menu"><i></i></span><span class="uc-t">Compliance médico</span><span class="uc-av"><svg viewBox="0 0 192 100"><path d="M45 0V75A19.5 19.5 0 0 1 6 75M104 0V75A19.5 19.5 0 0 1 65 75M130 0V100M124.5 5.5H172M124.5 48H164" fill="none" stroke="currentColor" stroke-width="13"/></svg></span></div>
+          <div class="uc-top"><span class="uc-menu"><i></i></span><span class="uc-t">Compliance médico</span><span class="uc-av"><svg viewBox="0 0 182 100"><path d="M84.1 21.4A44.5 44.5 0 1 0 94.5 50H57M120 0V100M114.5 5.5H162M114.5 48H154" fill="none" stroke="currentColor" stroke-width="13"/></svg></span></div>
           <div class="uc-body">
             <p class="uc-h">Checklist preventivo</p>
-            <p class="uc-s"><i></i>Profissionais e clínicas</p>
+            <p class="uc-s"><i></i>Consultório e clínica</p>
             <ul class="uc-rows">
               <li class="uc-chk"><b><svg viewBox="0 0 12 12"><path d="M2 6.5l2.5 2.5L10 3.5"/></svg></b><span>Contratos médicos</span><em class="ok">Concluído</em></li>
-              <li class="uc-chk"><b><svg viewBox="0 0 12 12"><path d="M2 6.5l2.5 2.5L10 3.5"/></svg></b><span>Documentação médica</span><em class="ok">Concluído</em></li>
               <li class="uc-chk"><b><svg viewBox="0 0 12 12"><path d="M2 6.5l2.5 2.5L10 3.5"/></svg></b><span>Termos de consentimento</span><em class="ok">Concluído</em></li>
-              <li class="uc-chk"><b class="p"></b><span>Processos CFM/CRM</span><em>Acompanhamento</em></li>
+              <li class="uc-chk"><b><svg viewBox="0 0 12 12"><path d="M2 6.5l2.5 2.5L10 3.5"/></svg></b><span>Prontuário e documentação</span><em class="ok">Concluído</em></li>
+              <li class="uc-chk"><b class="p"></b><span>Publicidade médica</span><em>Em revisão</em></li>
             </ul>
           </div>
         </div>
 
         <div class="uc">
-          <div class="uc-top"><span class="uc-menu"><i></i></span><span class="uc-t">Diagnóstico jurídico</span><span class="uc-av"><svg viewBox="0 0 192 100"><path d="M45 0V75A19.5 19.5 0 0 1 6 75M104 0V75A19.5 19.5 0 0 1 65 75M130 0V100M124.5 5.5H172M124.5 48H164" fill="none" stroke="currentColor" stroke-width="13"/></svg></span></div>
+          <div class="uc-top"><span class="uc-menu"><i></i></span><span class="uc-t">Processo ético</span><span class="uc-av"><svg viewBox="0 0 182 100"><path d="M84.1 21.4A44.5 44.5 0 1 0 94.5 50H57M120 0V100M114.5 5.5H162M114.5 48H154" fill="none" stroke="currentColor" stroke-width="13"/></svg></span></div>
+          <div class="uc-body">
+            <p class="uc-h">Acompanhamento do caso</p>
+            <p class="uc-s"><i></i>Da sindicância ao julgamento</p>
+            <ul class="uc-rows">
+              <li><span>Sindicância</span><span class="uc-bar"><i style="--w:1"></i></span><em class="ok">Concluída</em></li>
+              <li><span>Defesa prévia</span><span class="uc-bar"><i style="--w:1"></i></span><em class="ok">Protocolada</em></li>
+              <li><span>Instrução</span><span class="uc-bar"><i style="--w:.55"></i></span><em>Em andamento</em></li>
+              <li><span>Julgamento</span><span class="uc-bar"><i style="--w:.08"></i></span><em>Aguardando</em></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="uc">
+          <div class="uc-top"><span class="uc-menu"><i></i></span><span class="uc-t">Análise do caso</span><span class="uc-av"><svg viewBox="0 0 182 100"><path d="M84.1 21.4A44.5 44.5 0 1 0 94.5 50H57M120 0V100M114.5 5.5H162M114.5 48H154" fill="none" stroke="currentColor" stroke-width="13"/></svg></span></div>
           <div class="uc-body">
             <p class="uc-h">Mapa de riscos</p>
-            <p class="uc-s"><i></i>Antes que se tornem problemas</p>
+            <p class="uc-s"><i></i>Antes da estratégia de defesa</p>
             <svg class="uc-gauge" viewBox="0 0 220 124">
               <path d="M24 110A86 86 0 0 1 196 110" fill="none" stroke="#E4DED2" stroke-width="26"/>
               <path class="arc" d="M24 110A86 86 0 0 1 196 110" pathLength="100" fill="none" stroke="#0B1C3B" stroke-width="26"/>
@@ -771,78 +777,95 @@ html.js [data-fade].in{opacity:1}
       <div class="ar-copy-wrap">
         <article class="ar-copy is-active" id="arp-0" role="tabpanel" aria-labelledby="art-0">
           <p class="ar-idx"><b>01</b> // 03</p>
-          <h3>Direito Tributário</h3>
-          <p class="ar-sub">Planejamento, defesa e recuperação</p>
-          <p class="desc"><strong>Estratégia fiscal integrada</strong> para reduzir a carga tributária com total conformidade legal, preservando o patrimônio e a saúde financeira do seu negócio.</p>
+          <h3>Consultoria Preventiva</h3>
+          <p class="ar-sub">Contratos, documentação e compliance</p>
+          <p class="desc"><strong>Estrutura jurídica do consultório e da clínica</strong> pensada para reduzir riscos antes que eles se tornem processos.</p>
           <ul class="ar-svcs">
-            <li>Consultoria Preventiva Tributária</li>
-            <li>Elisão Fiscal</li>
-            <li>Recuperação de Créditos Tributários</li>
-            <li>Defesa em Processos Administrativos</li>
+            <li>Contratos médicos e de prestação de serviços</li>
+            <li>Termos de consentimento informado</li>
+            <li>Revisão de prontuário e documentação</li>
+            <li>Compliance para clínicas e hospitais</li>
           </ul>
-          <a class="btn btn-ghost" href="#contato" data-area="Direito Tributário">Consultar sobre tributário<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></a>
+          <a class="btn btn-ghost" href="#contato" data-area="Consultoria Preventiva para Médicos">Solicitar um diagnóstico<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></a>
         </article>
         <article class="ar-copy" id="arp-1" role="tabpanel" aria-labelledby="art-1">
           <p class="ar-idx"><b>02</b> // 03</p>
-          <h3>Direito Médico</h3>
-          <p class="ar-sub">Prevenção, defesa e compliance</p>
-          <p class="desc"><strong>Proteção jurídica especializada</strong> para profissionais e instituições de saúde, desde o planejamento preventivo até a defesa em processos éticos e cíveis.</p>
+          <h3>Defesa em processos do CRM e CFM</h3>
+          <p class="ar-sub">Sindicâncias e processos ético-profissionais</p>
+          <p class="desc"><strong>Acompanhamento técnico desde a sindicância</strong> até o julgamento, com uma estratégia construída a partir da documentação clínica.</p>
           <ul class="ar-svcs">
-            <li>Consultoria Preventiva para Médicos</li>
-            <li>Defesa em Processos do CFM/CRM</li>
-            <li>Contratos e Documentação Médica</li>
-            <li>Responsabilidade Civil Médica</li>
+            <li>Sindicâncias no CRM</li>
+            <li>Processos ético-profissionais</li>
+            <li>Recursos ao CFM</li>
+            <li>Defesa em procedimentos administrativos</li>
           </ul>
-          <a class="btn btn-ghost" href="#contato" data-area="Direito Médico">Consultar sobre direito médico<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></a>
+          <a class="btn btn-ghost" href="#contato" data-area="Defesa em Processos do CRM/CFM">Falar sobre a minha defesa<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></a>
         </article>
         <article class="ar-copy" id="arp-2" role="tabpanel" aria-labelledby="art-2">
           <p class="ar-idx"><b>03</b> // 03</p>
-          <h3>Consultoria Preventiva</h3>
-          <p class="ar-sub">Diagnóstico, estratégia e proteção</p>
-          <p class="desc"><strong>Identificamos riscos jurídicos</strong> antes que se tornem problemas. Uma abordagem proativa que economiza tempo, recursos e tranquilidade.</p>
+          <h3>Responsabilidade Civil Médica</h3>
+          <p class="ar-sub">Defesa em ações indenizatórias</p>
+          <p class="desc"><strong>Atuação em ações que discutem erro médico</strong>, com análise técnica do caso, acompanhamento de perícias e busca de acordos quando fizer sentido.</p>
           <ul class="ar-svcs">
-            <li>Diagnóstico Jurídico-Tributário</li>
-            <li>Compliance Médico-Jurídico</li>
-            <li>Estruturação de Holdings</li>
-            <li>Revisão Contratual Especializada</li>
+            <li>Defesa em ações de erro médico</li>
+            <li>Acompanhamento de perícias</li>
+            <li>Acordos e mediação</li>
+            <li>Contratos com operadoras de saúde</li>
           </ul>
-          <a class="btn btn-ghost" href="#contato" data-area="Consultoria Preventiva">Solicitar um diagnóstico<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></a>
+          <a class="btn btn-ghost" href="#contato" data-area="Responsabilidade Civil Médica">Analisar o meu caso<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></a>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- 03 Planejamento fiscal -->
-  <section class="sec navy tex pl" id="planejamento" aria-labelledby="pl-h">
+  <!-- 03 Outras áreas -->
+  <section class="sec navy tex pl" id="outras-areas" aria-labelledby="pl-h">
     <div class="pl-glow" aria-hidden="true"></div>
     <div class="pl-head">
       <div>
-        <p class="tag"><b>03</b>Planejamento fiscal</p>
-        <h2 class="h-xl" id="pl-h" data-rise>Pague apenas o que a lei determina.</h2>
+        <p class="tag"><b>03</b>Outras áreas</p>
+        <h2 class="h-xl" id="pl-h" data-rise>Atuação completa, além da saúde.</h2>
       </div>
       <div class="pl-intro" data-fade>
-        <p>Três instrumentos legítimos para reduzir a carga tributária, recuperar o que foi pago a mais e proteger o patrimônio da família.</p>
-        <a class="btn" href="#contato" data-area="Elisão Fiscal">Conversar com um sócio<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></a>
+        <p>Além do Direito Médico, o escritório atende demandas cíveis, de família, tributárias e trabalhistas, com o mesmo cuidado técnico e atendimento direto.</p>
+        <a class="btn" href="#contato">Falar com o advogado<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></a>
       </div>
     </div>
-    <div class="pl-cols">
-      <a class="pl-col" href="#contato" data-area="Elisão Fiscal">
+    <div class="pl-cols pl-4">
+      <a class="pl-col" href="#contato" data-area="Direito Civil">
         <svg class="pl-dia" viewBox="0 0 300 160" aria-hidden="true">
-          <path class="l" pathLength="1" d="M150 48V80M70 80H230M70 80V104M230 80V104"/>
-          <path class="f" pathLength="1" d="M150 48V80H70V104"/>
-          <path class="f" pathLength="1" d="M150 48V80H230V104" style="--fd:3.3s"/>
-          <rect class="b" x="105" y="14" width="90" height="34" rx="8"/><text x="150" y="35" text-anchor="middle">Holding</text>
-          <rect class="b" x="18" y="104" width="104" height="34" rx="8"/><text x="70" y="125" text-anchor="middle">Operacional</text>
-          <rect class="b" x="178" y="104" width="104" height="34" rx="8"/><text x="230" y="125" text-anchor="middle">Patrimonial</text>
-          <circle class="g" cx="150" cy="80" r="3.5"/>
+          <path class="l" pathLength="1" d="M70 48V76H230V48M150 76V104"/>
+          <path class="f" pathLength="1" d="M70 48V76H150V104"/>
+          <path class="f" pathLength="1" d="M230 48V76H150V104" style="--fd:3.3s"/>
+          <rect class="b" x="24" y="14" width="92" height="34" rx="8"/><text x="70" y="35" text-anchor="middle">Parte</text>
+          <rect class="b" x="184" y="14" width="92" height="34" rx="8"/><text x="230" y="35" text-anchor="middle">Parte</text>
+          <rect class="b" x="98" y="104" width="104" height="34" rx="8"/><text x="150" y="125" text-anchor="middle">Contrato</text>
+          <circle class="g" cx="150" cy="76" r="3.5"/>
         </svg>
-        <span class="pl-k">Estruturação</span>
-        <h3>Elisão Fiscal</h3>
-        <p>Estruturação legal do negócio para reduzir a carga tributária de forma lícita e sustentável.</p>
-        <span class="pl-more">Holdings · Reorganizações societárias · Regimes especiais</span>
+        <span class="pl-k">Contratos e obrigações</span>
+        <h3>Direito Civil</h3>
+        <p>Elaboração e revisão de contratos, cobranças e ações indenizatórias.</p>
+        <span class="pl-more">Contratos · Indenizações · Cobranças</span>
         <span class="pl-arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span>
       </a>
-      <a class="pl-col" href="#contato" data-area="Recuperação Tributária">
+      <a class="pl-col" href="#contato" data-area="Direito de Família">
+        <svg class="pl-dia" viewBox="0 0 300 160" aria-hidden="true">
+          <path class="l" pathLength="1" d="M150 50V76M60 76H240M60 76V100M150 76V100M240 76V100"/>
+          <path class="f" pathLength="1" d="M150 50V76H60V100"/>
+          <path class="f" pathLength="1" d="M150 50V100" style="--fd:2.3s"/>
+          <path class="f" pathLength="1" d="M150 50V76H240V100" style="--fd:3s"/>
+          <rect class="b" x="98" y="16" width="104" height="34" rx="17"/><text x="150" y="37" text-anchor="middle">Família</text>
+          <circle class="b" cx="60" cy="114" r="14"/><circle class="b" cx="150" cy="114" r="14" style="--bd:-2s"/><circle class="b" cx="240" cy="114" r="14" style="--bd:-4s"/>
+          <text class="k" x="150" y="150" text-anchor="middle">FAMÍLIA E SUCESSÕES</text>
+          <circle class="g" cx="150" cy="76" r="3.5"/>
+        </svg>
+        <span class="pl-k">Família e sucessões</span>
+        <h3>Direito de Família</h3>
+        <p>Divórcio, guarda, pensão alimentícia, inventário e planejamento sucessório.</p>
+        <span class="pl-more">Divórcio · Guarda · Inventário</span>
+        <span class="pl-arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span>
+      </a>
+      <a class="pl-col" href="#contato" data-area="Direito Tributário">
         <svg class="pl-dia" viewBox="0 0 300 160" aria-hidden="true">
           <path class="l" pathLength="1" d="M20 120H280M40 114V126M95 114V126M150 114V126M205 114V126M260 114V126"/>
           <path class="l" pathLength="1" d="M260 106C222 36 78 36 40 106M33 96L40 107L50 99"/>
@@ -852,27 +875,26 @@ html.js [data-fade].in{opacity:1}
           <text x="40" y="146" text-anchor="middle">1</text><text x="95" y="146" text-anchor="middle">2</text><text x="150" y="146" text-anchor="middle">3</text><text x="205" y="146" text-anchor="middle">4</text><text x="260" y="146" text-anchor="middle">5</text>
           <circle class="g" cx="260" cy="120" r="3.5"/>
         </svg>
-        <span class="pl-k">Restituição</span>
-        <h3>Recuperação Tributária</h3>
-        <p>Identificação e restituição de tributos pagos indevidamente nos últimos 5 anos.</p>
-        <span class="pl-more">PIS/COFINS · ICMS · ISS · Demais espécies tributárias</span>
+        <span class="pl-k">Planejamento e defesa</span>
+        <h3>Direito Tributário</h3>
+        <p>Planejamento tributário para profissionais e clínicas, recuperação de tributos pagos a mais e defesa administrativa.</p>
+        <span class="pl-more">Planejamento · Recuperação · Defesa</span>
         <span class="pl-arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span>
       </a>
-      <a class="pl-col" href="#contato" data-area="Planejamento Sucessório">
+      <a class="pl-col" href="#contato" data-area="Direito Trabalhista">
         <svg class="pl-dia" viewBox="0 0 300 160" aria-hidden="true">
-          <path class="l" pathLength="1" d="M150 50V76M60 76H240M60 76V100M150 76V100M240 76V100"/>
-          <path class="f" pathLength="1" d="M150 50V76H60V100"/>
-          <path class="f" pathLength="1" d="M150 50V100" style="--fd:2.3s"/>
-          <path class="f" pathLength="1" d="M150 50V76H240V100" style="--fd:3s"/>
-          <rect class="b" x="98" y="16" width="104" height="34" rx="17"/><text x="150" y="37" text-anchor="middle">Patrimônio</text>
-          <circle class="b" cx="60" cy="114" r="14"/><circle class="b" cx="150" cy="114" r="14" style="--bd:-2s"/><circle class="b" cx="240" cy="114" r="14" style="--bd:-4s"/>
-          <text class="k" x="150" y="150" text-anchor="middle">SUCESSÃO FAMILIAR</text>
+          <path class="l" pathLength="1" d="M150 48V76M60 76H240M60 76V100M150 76V100M240 76V100"/>
+          <path class="f" pathLength="1" d="M150 48V76H240V100"/>
+          <path class="f" pathLength="1" d="M150 48V76H60V100" style="--fd:2.6s"/>
+          <rect class="b" x="105" y="14" width="90" height="34" rx="8"/><text x="150" y="35" text-anchor="middle">Empresa</text>
+          <rect class="b" x="30" y="100" width="60" height="28" rx="14"/><rect class="b" x="120" y="100" width="60" height="28" rx="14"/><rect class="b" x="210" y="100" width="60" height="28" rx="14"/>
+          <text class="k" x="150" y="150" text-anchor="middle">RELAÇÕES DE TRABALHO</text>
           <circle class="g" cx="150" cy="76" r="3.5"/>
         </svg>
-        <span class="pl-k">Sucessão</span>
-        <h3>Planejamento Sucessório</h3>
-        <p>Proteção patrimonial e transmissão eficiente de riqueza na sucessão familiar.</p>
-        <span class="pl-more">Minimização do ITCMD · Demais ônus fiscais</span>
+        <span class="pl-k">Empresas e equipes</span>
+        <h3>Direito Trabalhista</h3>
+        <p>Assessoria trabalhista para clínicas e empresas, contratos de trabalho e defesa em reclamações.</p>
+        <span class="pl-more">Assessoria · Contratos · Defesa</span>
         <span class="pl-arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span>
       </a>
     </div>
@@ -890,22 +912,22 @@ html.js [data-fade].in{opacity:1}
         <article class="me-card c1" style="--y:0px">
           <span class="me-n">(1)</span>
           <h3>Diagnóstico Aprofundado</h3>
-          <p>Análise completa da situação fiscal, contratual e de risco antes de qualquer recomendação.</p>
+          <p>Análise da documentação clínica, dos contratos e do histórico do caso antes de qualquer recomendação.</p>
         </article>
         <article class="me-card c2" style="--y:70px">
           <img src="img/estrategia.jpg" alt="" loading="lazy">
           <span class="me-n">(2)</span>
           <h3>Estratégia Personalizada</h3>
-          <p>Soluções sob medida para cada cliente. Não existem fórmulas prontas em casos complexos.</p>
+          <p>Soluções sob medida para a realidade de cada médico, clínica ou instituição. Não existem fórmulas prontas.</p>
         </article>
         <article class="me-card c3" style="--y:6px">
           <span class="me-n">(3)</span>
-          <h3>Execução e Acompanhamento</h3>
-          <p>Gestão ativa do processo com relatórios periódicos e comunicação transparente.</p>
+          <h3>Acompanhamento Próximo</h3>
+          <p>Atuação ativa em cada etapa, com comunicação direta e transparente com o advogado.</p>
         </article>
         <a class="me-card c4" href="#contato" style="--y:48px">
           <span class="me-n">Próximo passo</span>
-          <h3>Converse com um sócio</h3>
+          <h3>Converse com o advogado</h3>
           <p>O primeiro passo é entender o seu caso.</p>
           <span class="me-go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span>
         </a>
@@ -918,26 +940,26 @@ html.js [data-fade].in{opacity:1}
     <div class="wy-head">
       <div>
         <p class="tag"><b>05</b>Diferenciais</p>
-        <h2 class="h-xl" id="wy-h" data-rise>Por que o JJF</h2>
+        <h2 class="h-xl" id="wy-h" data-rise>Advocacia próxima e especializada.</h2>
       </div>
       <p class="lead" data-fade>Cinco compromissos que orientam cada atendimento, do primeiro contato à conclusão do caso.</p>
     </div>
     <div class="wy-acc" id="wy-acc">
       <button class="wy-item wy-1 is-open" type="button" aria-expanded="true">
         <span class="wy-big" aria-hidden="true">01</span><span class="wy-n"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg></span><i aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></i></span>
-        <span class="wy-v" aria-hidden="true">Especialização exclusiva</span>
-        <span class="wy-c"><span class="wy-t">Especialização exclusiva</span><span class="wy-d">Atuamos somente em Direito Tributário e Direito Médico. Profundidade em vez de dispersão.</span></span>
+        <span class="wy-v" aria-hidden="true">Foco em Direito Médico</span>
+        <span class="wy-c"><span class="wy-t">Foco em Direito Médico</span><span class="wy-d">Conhecimento da rotina médica, das normas do CFM e da linguagem da saúde.</span></span>
       </button>
       <button class="wy-item wy-2" type="button" aria-expanded="false">
         <img src="img/equipe.jpg" alt="" loading="lazy">
-        <span class="wy-big" aria-hidden="true">02</span><span class="wy-n"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="3"/><circle cx="16.5" cy="10" r="2.5"/><path d="M3.5 19c.8-3 3-4.5 5.5-4.5s4.7 1.5 5.5 4.5M15 14.6c2.6 0 4.6 1.4 5.3 4.4"/></svg></span><i aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></i></span>
-        <span class="wy-v" aria-hidden="true">Equipe multidisciplinar</span>
-        <span class="wy-c"><span class="wy-t">Equipe multidisciplinar</span><span class="wy-d">Direito e contabilidade analisam o mesmo caso, com a mesma informação.</span></span>
+        <span class="wy-big" aria-hidden="true">02</span><span class="wy-n"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10" cy="8" r="3.5"/><path d="M3.5 20c.9-3.6 3.4-5.5 6.5-5.5 1.5 0 2.9.4 4 1.3M15 18l2 2 4-4"/></svg></span><i aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></i></span>
+        <span class="wy-v" aria-hidden="true">Atendimento direto</span>
+        <span class="wy-c"><span class="wy-t">Atendimento direto com o advogado</span><span class="wy-d">Você fala diretamente com quem conduz o seu caso, do primeiro contato à conclusão.</span></span>
       </button>
       <button class="wy-item wy-3" type="button" aria-expanded="false">
-        <span class="wy-big" aria-hidden="true">03</span><span class="wy-n"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10" cy="8" r="3.5"/><path d="M3.5 20c.9-3.6 3.4-5.5 6.5-5.5 1.5 0 2.9.4 4 1.3M15 18l2 2 4-4"/></svg></span><i aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></i></span>
-        <span class="wy-v" aria-hidden="true">Sócio responsável</span>
-        <span class="wy-c"><span class="wy-t">Sócio responsável em todos os casos</span><span class="wy-d">Você fala diretamente com quem conduz o seu caso, do diagnóstico à conclusão.</span></span>
+        <span class="wy-big" aria-hidden="true">03</span><span class="wy-n"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><i aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></i></span>
+        <span class="wy-v" aria-hidden="true">Atuação preventiva</span>
+        <span class="wy-c"><span class="wy-t">Atuação preventiva</span><span class="wy-d">Contratos, termos e documentação bem estruturados antes que surja qualquer conflito.</span></span>
       </button>
       <button class="wy-item wy-4" type="button" aria-expanded="false">
         <span class="wy-big" aria-hidden="true">04</span><span class="wy-n"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3M12 14.5v2"/></svg></span><i aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></i></span>
@@ -951,8 +973,8 @@ html.js [data-fade].in{opacity:1}
       </button>
     </div>
     <div class="wy-foot">
-      <p>Sede em Londrina, Paraná, com atendimento em todo&nbsp;o&nbsp;Brasil, de segunda a sexta, das 08h às 18h.</p>
-      <a class="btn" href="#contato">Falar com um sócio<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></a>
+      <p>Atendimento de segunda a sexta, das 08h às 18h.</p>
+      <a class="btn" href="#contato">Falar com o advogado<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></a>
     </div>
   </section>
 
@@ -963,7 +985,7 @@ html.js [data-fade].in{opacity:1}
       <div class="ct-head">
         <p class="tag"><b>06</b>Contato</p>
         <h2 id="ct-h" data-rise>Inicie sua consulta hoje.</h2>
-        <p class="lead" data-fade>Conte o que você precisa. Atendemos clientes em todo&nbsp;o&nbsp;Brasil, e um sócio analisa o caso e retorna pelo canal que você preferir.</p>
+        <p class="lead" data-fade>Conte o que você precisa. O advogado analisa o caso e retorna pelo canal que você preferir.</p>
       </div>
 
       <div class="ct-box" data-fade>
@@ -971,29 +993,29 @@ html.js [data-fade].in{opacity:1}
         <img src="img/conversa.jpg" alt="" loading="lazy">
         <blockquote class="quote"><p>“A lei é a razão livre das paixões.”</p><cite>Aristóteles</cite></blockquote>
         <div class="ct-quick">
-          <a class="ct-q ct-q-wa" href="https://wa.me/5543991092644" target="_blank" rel="noopener">
+          <a class="ct-q ct-q-wa" href="https://wa.me/5500000000000" target="_blank" rel="noopener">
             <span class="ct-ic"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8.4 19L4 20z"/><path d="M9 9.5c.3 2.2 2.3 4.3 4.5 4.7l1-1.2 2 .8c-.2 1.3-1.2 2-2.4 1.9C10.9 15.4 8.6 13 8.3 10c-.1-1.2.6-2.2 1.9-2.4l.8 2-1 .9"/></svg></span>
-            <span><small>WhatsApp</small><b>(43) 99109-2644</b></span>
+            <span><small>WhatsApp</small><b>(00) 00000-0000</b></span>
             <span class="ct-go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span>
           </a>
-          <a class="ct-q ct-q-link" href="tel:+5543999818010">
+          <a class="ct-q ct-q-link" href="tel:+5500000000000">
             <span class="ct-ic"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span>
-            <span><small>Telefone</small><b>(43) 99981-8010</b></span>
+            <span><small>Telefone</small><b>(00) 00000-0000</b></span>
             <span class="ct-go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span>
           </a>
-          <a class="ct-q ct-q-link" href="mailto:atendimento@jjfadvocacia.com.br">
+          <a class="ct-q ct-q-link" href="mailto:email@seuescritorio.com.br">
             <span class="ct-ic"><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3zM3 7l9 6 9-6"/></svg></span>
-            <span><small>E-mail</small><b>atendimento@jjfadvocacia.com.br</b></span>
+            <span><small>E-mail</small><b>email@seuescritorio.com.br</b></span>
             <span class="ct-go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span>
           </a>
-          <p class="ct-meta"><span>Sede em Londrina, PR <i class="sep" style="font-style:normal">·</i> <span class="nw">Atendimento em todo&nbsp;o&nbsp;Brasil</span></span><span>Seg a Sex, 08h às 18h</span></p>
+          <p class="ct-meta"><span>Cidade, UF <i class="sep" style="font-style:normal">·</i> <span class="nw">Endereço a confirmar</span></span><span>Seg a Sex, 08h às 18h</span></p>
         </div>
       </aside>
 
       <div class="ct-card">
         <form class="form" id="contact-form" novalidate>
           <div class="ct-card-h field full">
-            <div><h3>Solicite um contato</h3><p>Um sócio analisa a sua mensagem e retorna em horário de atendimento.</p></div>
+            <div><h3>Solicite um contato</h3><p>O advogado analisa a sua mensagem e retorna em horário de atendimento.</p></div>
           </div>
           <div class="field">
             <label for="f-nome">Nome completo</label>
@@ -1013,12 +1035,13 @@ html.js [data-fade].in{opacity:1}
           <div class="field">
             <label for="f-area">Área de interesse</label>
             <select id="f-area" name="area">
+              <option>Consultoria Preventiva para Médicos</option>
+              <option>Defesa em Processos do CRM/CFM</option>
+              <option>Responsabilidade Civil Médica</option>
+              <option>Direito Civil</option>
+              <option>Direito de Família</option>
               <option>Direito Tributário</option>
-              <option>Elisão Fiscal</option>
-              <option>Recuperação Tributária</option>
-              <option>Direito Médico</option>
-              <option>Consultoria Preventiva</option>
-              <option>Planejamento Sucessório</option>
+              <option>Direito Trabalhista</option>
             </select>
           </div>
           <div class="field full">
@@ -1035,9 +1058,9 @@ html.js [data-fade].in{opacity:1}
           <span class="success-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
           <p class="success-area" id="success-area">Direito Tributário</p>
           <h3 id="success-h" tabindex="-1">Solicitação registrada.</h3>
-          <p id="success-msg">Obrigado. Um sócio do JJF retorna pelo contato informado, em horário de atendimento.</p>
+          <p id="success-msg">Obrigado. O escritório retorna pelo contato informado, em horário de atendimento.</p>
           <div class="success-actions">
-            <a class="btn" href="https://wa.me/5543991092644" target="_blank" rel="noopener">Falar pelo WhatsApp<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span></a>
+            <a class="btn" href="https://wa.me/5500000000000" target="_blank" rel="noopener">Falar pelo WhatsApp<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span></a>
             <button class="text-btn ul" type="button" id="form-reset">Enviar outra solicitação</button>
           </div>
         </div>
@@ -1051,39 +1074,39 @@ html.js [data-fade].in{opacity:1}
   <div class="ft-glow" aria-hidden="true"></div>
   <div class="ft-top">
     <div class="ft-brand">
-      <a class="brand" href="#topo" aria-label="JJF Advocacia e Consultoria, voltar ao início"><svg class="logo" viewBox="0 0 192 100" aria-hidden="true"><path d="M45 0V75A19.5 19.5 0 0 1 6 75M104 0V75A19.5 19.5 0 0 1 65 75M130 0V100M124.5 5.5H172M124.5 48H164" fill="none" stroke="currentColor" stroke-width="11"/><rect x="180" y="89" width="11" height="11" rx="1.5" fill="#C9A84C"/></svg><small>Advocacia &amp; Consultoria</small></a>
-      <p class="ft-statement">Estratégia fiscal e proteção jurídica, com um sócio em todos os casos.</p>
+      <a class="brand" href="#topo" aria-label="Gabriel Filemon Advocacia, voltar ao início"><svg class="logo" viewBox="0 0 182 100" aria-hidden="true"><path d="M84.1 21.4A44.5 44.5 0 1 0 94.5 50H57M120 0V100M114.5 5.5H162M114.5 48H154" fill="none" stroke="currentColor" stroke-width="11"/><rect x="170" y="89" width="11" height="11" rx="1.5" fill="#C9A84C"/></svg><small>Gabriel Filemon Advocacia</small></a>
+      <p class="ft-statement">Direito Médico com atendimento direto do advogado.</p>
     </div>
     <a class="ft-status" href="#contato">
-      <span class="ft-st-top"><span>Londrina, Paraná</span><span class="ft-pill" id="ft-pill"><i></i><span id="ft-open">Horário de Brasília</span></span></span>
+      <span class="ft-st-top"><span>Horário de atendimento</span><span class="ft-pill" id="ft-pill"><i></i><span id="ft-open">Horário de Brasília</span></span></span>
       <span class="ft-time" id="ft-time">08:00</span>
-      <span class="ft-hours">Sede em Londrina, com atendimento em todo&nbsp;o&nbsp;Brasil. Segunda a sexta, das 08h às 18h.</span>
+      <span class="ft-hours">Segunda a sexta, das 08h às 18h, no horário de Brasília.</span>
       <span class="btn btn-sm">Agendar consulta<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></span>
     </a>
     <div class="ft-cols">
       <nav class="ft-col" aria-label="Rodapé">
         <h4>Navegação</h4>
         <a href="#topo">Início</a>
-        <a href="#atuacao">Atuação</a>
-        <a href="#planejamento">Planejamento Fiscal</a>
+        <a href="#atuacao">Direito Médico</a>
+        <a href="#outras-areas">Outras áreas</a>
         <a href="#metodologia">Metodologia</a>
         <a href="#contato">Contato</a>
       </nav>
       <div class="ft-col">
         <h4>Áreas</h4>
-        <a href="#atuacao" data-tab="0">Direito Tributário</a>
-        <a href="#atuacao" data-tab="1">Direito Médico</a>
-        <a href="#atuacao" data-tab="2">Consultoria Preventiva</a>
-        <a href="#planejamento">Planejamento Sucessório</a>
+        <a href="#atuacao" data-tab="0">Consultoria Preventiva</a>
+        <a href="#atuacao" data-tab="1">Defesa CRM e CFM</a>
+        <a href="#atuacao" data-tab="2">Responsabilidade Civil</a>
+        <a href="#outras-areas">Cível, Família, Tributário e Trabalhista</a>
       </div>
       <div class="ft-col">
         <h4>Contato</h4>
-        <a href="https://wa.me/5543991092644" target="_blank" rel="noopener">(43) 99109-2644</a>
-        <a href="tel:+5543999818010">(43) 99981-8010</a>
-        <a href="mailto:atendimento@jjfadvocacia.com.br">atendimento@jjfadvocacia.com.br</a>
+        <a href="https://wa.me/5500000000000" target="_blank" rel="noopener">(00) 00000-0000</a>
+        <a href="tel:+5500000000000">(00) 00000-0000</a>
+        <a href="mailto:email@seuescritorio.com.br">email@seuescritorio.com.br</a>
         <span class="ft-btns">
-          <a class="btn btn-sm" href="https://wa.me/5543991092644" target="_blank" rel="noopener">WhatsApp<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span></a>
-          <a class="btn btn-sm btn-ghost" href="mailto:atendimento@jjfadvocacia.com.br">E-mail<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span></a>
+          <a class="btn btn-sm" href="https://wa.me/5500000000000" target="_blank" rel="noopener">WhatsApp<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span></a>
+          <a class="btn btn-sm btn-ghost" href="mailto:email@seuescritorio.com.br">E-mail<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span></a>
         </span>
       </div>
       <div class="ft-col">
@@ -1093,27 +1116,27 @@ html.js [data-fade].in{opacity:1}
     </div>
   </div>
   <div class="ft-bottom">
-    <span>JJF Advocacia &amp; Consultoria</span>
-    <span>© 2026 JJF Advocacia. Todos os direitos reservados.</span>
+    <span>Gabriel Filemon Advocacia</span>
+    <span>© 2026 Gabriel Filemon Advocacia. Todos os direitos reservados.</span>
   </div>
 </footer>
 </div>
 
 <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
   <div class="menu-top">
-    <span class="brand" role="img" aria-label="JJF"><svg class="logo" viewBox="0 0 192 100" aria-hidden="true"><path d="M45 0V75A19.5 19.5 0 0 1 6 75M104 0V75A19.5 19.5 0 0 1 65 75M130 0V100M124.5 5.5H172M124.5 48H164" fill="none" stroke="currentColor" stroke-width="11"/><rect x="180" y="89" width="11" height="11" rx="1.5" fill="#C9A84C"/></svg></span>
+    <span class="brand" role="img" aria-label="Gabriel Filemon Advocacia"><svg class="logo" viewBox="0 0 182 100" aria-hidden="true"><path d="M84.1 21.4A44.5 44.5 0 1 0 94.5 50H57M120 0V100M114.5 5.5H162M114.5 48H154" fill="none" stroke="currentColor" stroke-width="11"/><rect x="170" y="89" width="11" height="11" rx="1.5" fill="#C9A84C"/></svg></span>
     <button class="menu-close" type="button" id="menu-close" aria-label="Fechar menu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13"/></svg></button>
   </div>
   <nav class="menu-links" aria-label="Menu principal">
-    <a href="#atuacao"><b>01</b>Atuação</a>
-    <a href="#planejamento"><b>02</b>Planejamento Fiscal</a>
+    <a href="#atuacao"><b>01</b>Direito Médico</a>
+    <a href="#outras-areas"><b>02</b>Outras áreas</a>
     <a href="#metodologia"><b>03</b>Metodologia</a>
     <a href="#contato"><b>04</b>Contato</a>
   </nav>
   <div class="menu-foot">
     <a class="btn" href="#contato">Agendar consulta<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></a>
-    <a class="btn btn-ghost" href="https://wa.me/5543991092644" target="_blank" rel="noopener">Conversar pelo WhatsApp<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span></a>
-    <p>Sede em Londrina, PR · Atendimento em todo&nbsp;o&nbsp;Brasil</p>
+    <a class="btn btn-ghost" href="https://wa.me/5500000000000" target="_blank" rel="noopener">Conversar pelo WhatsApp<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span></a>
+    <p>Direito Médico e da Saúde</p>
   </div>
 </div>
 
@@ -1173,7 +1196,7 @@ html.js [data-fade].in{opacity:1}
       navLinks.forEach(function(a){ a.classList.toggle('is-current', a.getAttribute('href') === '#' + e.target.id); });
     });
   }, { rootMargin: '-45% 0px -50% 0px' });
-  ['topo', 'atuacao', 'planejamento', 'metodologia', 'diferenciais', 'contato'].forEach(function(id){ spy.observe(document.getElementById(id)); });
+  ['topo', 'atuacao', 'outras-areas', 'metodologia', 'diferenciais', 'contato'].forEach(function(id){ spy.observe(document.getElementById(id)); });
 
   // Links that name an area preselect it in the contact form
   document.querySelectorAll('a[href="#contato"]').forEach(function(a){
@@ -1370,7 +1393,7 @@ html.js [data-fade].in{opacity:1}
   pic.onload = build; pic.onerror = function(){ wrap.remove(); };
   pic.src = src;
 
-  // Footer: local time in Londrina and whether the office is open now
+  // Footer: Brasília time and whether the office is open now
   var tEl = document.getElementById('ft-time'), oEl = document.getElementById('ft-open'), pill = document.getElementById('ft-pill');
   function clock(){
     try {
@@ -1408,7 +1431,7 @@ html.js [data-fade].in{opacity:1}
     if (bad.length) { bad[0].focus(); return; }
     var first = document.getElementById('f-nome').value.trim().split(/\s+/)[0];
     document.getElementById('success-area').textContent = document.getElementById('f-area').value;
-    document.getElementById('success-msg').textContent = 'Obrigado, ' + first + '. Um sócio do JJF retorna pelo contato informado, em horário de atendimento.';
+    document.getElementById('success-msg').textContent = 'Obrigado, ' + first + '. O escritório retorna pelo contato informado, em horário de atendimento.';
     form.hidden = true; ok.hidden = false;
     document.getElementById('success-h').focus({ preventScroll: true });
   });
