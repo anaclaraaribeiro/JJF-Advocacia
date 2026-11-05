@@ -482,6 +482,8 @@ html.js .bars.live .bar{transform:scaleY(var(--s,1));filter:brightness(var(--b,1
 .err:empty{display:none}
 .form-foot{grid-column:1 / -1;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:8px}
 .form-note{font-size:13px;color:var(--mist);max-width:34ch}
+.form-err{grid-column:1 / -1;font-size:14px;color:var(--err)}
+.form.sending button[type="submit"]{opacity:.65;cursor:progress}
 .success{display:grid;gap:22px;justify-items:start;padding:12px 0}
 .success-ic{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg,#DCC06C,#C9A84C);color:var(--navy)}
 .success-ic svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2}
@@ -1281,6 +1283,8 @@ html.js [data-fade].in{opacity:1}
             <label for="f-msg">Mensagem</label>
             <textarea id="f-msg" name="mensagem" rows="3" placeholder="Conte, em poucas linhas, o que você precisa."></textarea>
           </div>
+          <input type="text" name="_honey" id="f-honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+          <p class="form-err" id="form-err" role="alert" hidden>Não foi possível enviar agora. Tente novamente em instantes ou fale pelo WhatsApp.</p>
           <div class="form-foot">
             <p class="form-note">As informações enviadas são tratadas com sigilo e usadas apenas para o retorno da equipe.</p>
             <button class="btn" type="submit">Enviar solicitação<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg><svg viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></button>
@@ -1642,7 +1646,8 @@ html.js [data-fade].in{opacity:1}
   }
   clock(); setInterval(clock, 30000);
 
-  // Contact form with inline validation and a designed success state
+  // Contact form: validates inline, then sends through FormSubmit to FORM_TO (test inbox for now; swap for the client's address)
+  var FORM_TO = 'anaclaraaribeiro@gmail.com';
   var form = document.getElementById('contact-form'), ok = document.getElementById('form-success');
   var tel = document.getElementById('f-tel');
   tel.addEventListener('input', function(){
@@ -1663,11 +1668,30 @@ html.js [data-fade].in{opacity:1}
       check('f-tel', function(v){ return v.replace(/\D/g, '').length >= 10; }, 'Informe um telefone com DDD.')
     ].filter(Boolean);
     if (bad.length) { bad[0].focus(); return; }
-    var first = document.getElementById('f-nome').value.trim().split(/\s+/)[0];
-    document.getElementById('success-area').textContent = document.getElementById('f-area').value;
-    document.getElementById('success-msg').textContent = 'Obrigado, ' + first + '. O escritório retorna pelo contato informado, em horário de atendimento.';
-    form.hidden = true; ok.hidden = false;
-    document.getElementById('success-h').focus({ preventScroll: true });
+    if (document.getElementById('f-honey').value) return;
+    var val = function(id){ return document.getElementById(id).value.trim(); };
+    var nome = val('f-nome'), area = val('f-area');
+    var btn = form.querySelector('button[type="submit"]'), errEl = document.getElementById('form-err');
+    errEl.hidden = true; btn.disabled = true; btn.setAttribute('aria-busy', 'true'); form.classList.add('sending');
+    fetch('https://formsubmit.co/ajax/' + FORM_TO, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        Nome: nome, 'E-mail': val('f-email'), 'Telefone / WhatsApp': val('f-tel'), 'Área de interesse': area, Mensagem: val('f-msg') || '(sem mensagem)',
+        _subject: 'Nova solicitação pelo site: ' + area, _replyto: val('f-email'), _template: 'table', _captcha: 'false'
+      })
+    }).then(function(r){
+      return r.json().then(function(j){ if (!r.ok || String(j.success) !== 'true') throw new Error(j.message || 'Falha no envio'); });
+    }).then(function(){
+      document.getElementById('success-area').textContent = area;
+      document.getElementById('success-msg').textContent = 'Obrigado, ' + nome.split(/\s+/)[0] + '. O escritório retorna pelo contato informado, em horário de atendimento.';
+      form.hidden = true; ok.hidden = false;
+      document.getElementById('success-h').focus({ preventScroll: true });
+    }).catch(function(){
+      errEl.hidden = false;
+    }).then(function(){
+      btn.disabled = false; btn.removeAttribute('aria-busy'); form.classList.remove('sending');
+    });
   });
   document.getElementById('form-reset').addEventListener('click', function(){
     form.reset(); ok.hidden = true; form.hidden = false;
