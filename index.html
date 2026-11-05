@@ -484,13 +484,27 @@ html.js .bars.live .bar{transform:scaleY(var(--s,1));filter:brightness(var(--b,1
 .form-note{font-size:13px;color:var(--mist);max-width:34ch}
 .form-err{grid-column:1 / -1;font-size:14px;color:var(--err)}
 .form.sending button[type="submit"]{opacity:.65;cursor:progress}
-.success{display:grid;gap:22px;justify-items:start;padding:12px 0}
-.success-ic{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg,#DCC06C,#C9A84C);color:var(--navy)}
-.success-ic svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2}
-.success h3{font-size:clamp(32px,3vw,48px);line-height:1.02;letter-spacing:-.04em;outline:none}
-.success p{color:var(--off-2);max-width:40ch}
-.success-area{font-size:13px;color:var(--gold-l)}
-.success-actions{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.success{display:grid;justify-items:center;align-content:center;gap:18px;min-height:560px;padding:12px 0;text-align:center}
+.sx-mark{width:84px;height:84px;margin-bottom:6px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,rgba(201,168,76,.22),rgba(201,168,76,0) 70%)}
+.sx-mark svg{width:72px;height:72px;overflow:visible}
+.sx-ring{fill:none;stroke:var(--gold);stroke-width:2;stroke-dasharray:1;stroke-dashoffset:1;transform:rotate(-90deg);transform-origin:center}
+.sx-check{fill:none;stroke:var(--gold-l);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+.success:not([hidden]) .sx-ring{animation:sxDraw .9s var(--ease) .1s forwards}
+.success:not([hidden]) .sx-check{animation:sxDraw .6s var(--ease) .75s forwards}
+@keyframes sxDraw{to{stroke-dashoffset:0}}
+.sx-area{display:inline-flex;align-items:center;gap:10px;padding:7px 14px;border-radius:99px;background:rgba(201,168,76,.1);box-shadow:inset 0 0 0 1px rgba(201,168,76,.3);font-size:13px}
+.sx-area span{color:var(--mist)}
+.sx-area b{font-weight:500;color:var(--gold-l)}
+.success h3{font-size:clamp(30px,2.8vw,44px);line-height:1.02;letter-spacing:-.04em;outline:none}
+.sx-msg{color:var(--off-2);max-width:40ch}
+.sx-steps{display:grid;gap:0;width:100%;max-width:400px;margin:14px 0 10px;text-align:left}
+.sx-steps li{position:relative;display:grid;grid-template-columns:22px minmax(0,1fr);gap:14px;padding:0 0 18px}
+.sx-steps li:not(:last-child)::before{content:"";position:absolute;left:10px;top:20px;bottom:0;width:1px;background:var(--line-d)}
+.sx-steps i{width:21px;height:21px;border-radius:50%;box-shadow:inset 0 0 0 1.5px rgba(232,201,122,.45);margin-top:1px}
+.sx-steps li.done i{background:var(--gold);box-shadow:none}
+.sx-steps span{display:grid;gap:2px;font-size:14px;color:var(--mist)}
+.sx-steps b{font-weight:500;font-size:15px;color:var(--off)}
+.success-actions{display:flex;gap:20px;align-items:center;justify-content:center;flex-wrap:wrap}
 .text-btn{background:none;border:0;padding:0;cursor:pointer;color:var(--off-2);font-size:15px}
 
 /* footer */
@@ -1292,16 +1306,20 @@ html.js [data-fade].in{opacity:1}
         </form>
 
         <div class="success" id="form-success" hidden>
-          <span class="success-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-          <p class="success-area" id="success-area">Direito Tributário</p>
-          <h3 id="success-h" tabindex="-1">Solicitação registrada.</h3>
-          <p id="success-msg">Obrigado. O escritório retorna pelo contato informado, em horário de atendimento.</p>
+          <div class="sx-mark" aria-hidden="true"><svg viewBox="0 0 64 64"><circle class="sx-ring" cx="32" cy="32" r="29" pathLength="1"/><path class="sx-check" pathLength="1" d="M20 33l8 8 16-17"/></svg></div>
+          <p class="sx-area"><span>Área de interesse</span><b id="success-area">Direito Médico</b></p>
+          <h3 id="success-h" tabindex="-1">Solicitação enviada.</h3>
+          <p class="sx-msg" id="success-msg">Obrigado. O escritório retorna pelo contato informado, em horário de atendimento.</p>
+          <ol class="sx-steps">
+            <li class="done"><i></i><span><b>Mensagem recebida</b>Sua solicitação chegou ao escritório com sigilo.</span></li>
+            <li><i></i><span><b>Análise do caso</b>Gabriel Filemon avalia as informações enviadas.</span></li>
+            <li><i></i><span><b>Retorno</b>Contato pelo telefone ou e-mail informado, em horário de atendimento.</span></li>
+          </ol>
           <div class="success-actions">
             <a class="btn" href="https://wa.me/5500000000000" target="_blank" rel="noopener">Falar pelo WhatsApp<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span></a>
             <button class="text-btn ul" type="button" id="form-reset">Enviar outra solicitação</button>
           </div>
         </div>
-      </div>
       </div>
     </div>
   </section>
@@ -1686,6 +1704,7 @@ html.js [data-fade].in{opacity:1}
       document.getElementById('success-area').textContent = area;
       document.getElementById('success-msg').textContent = 'Obrigado, ' + nome.split(/\s+/)[0] + '. O escritório retorna pelo contato informado, em horário de atendimento.';
       form.hidden = true; ok.hidden = false;
+      ok.closest('.ct-card').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
       document.getElementById('success-h').focus({ preventScroll: true });
     }).catch(function(){
       errEl.hidden = false;
