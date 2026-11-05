@@ -1778,7 +1778,12 @@ html.js [data-fade].in{opacity:1}
       form.hidden = true; ok.hidden = false;
       ok.closest('.ct-card').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
       document.getElementById('success-h').focus({ preventScroll: true });
-    }).catch(function(){
+    }).catch(function(err){
+      var why = (err && err.message) || '';
+      if (window.console) console.warn('Envio do formulário falhou:', why);
+      errEl.textContent = /activ/i.test(why)
+        ? 'O formulário aguarda ativação. Confirme o e-mail do FormSubmit enviado à caixa configurada (confira também Spam e Promoções) e envie de novo.'
+        : 'Não foi possível enviar agora. Tente novamente em instantes ou fale pelo WhatsApp.';
       errEl.hidden = false;
     }).then(function(){
       btn.disabled = false; btn.removeAttribute('aria-busy'); form.classList.remove('sending');
