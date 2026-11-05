@@ -1763,16 +1763,19 @@ html.js [data-fade].in{opacity:1}
     var nome = val('f-nome'), area = val('f-area');
     var btn = form.querySelector('button[type="submit"]'), errEl = document.getElementById('form-err');
     errEl.hidden = true; btn.disabled = true; btn.setAttribute('aria-busy', 'true'); form.classList.add('sending');
-    fetch('https://formsubmit.co/ajax/' + FORM_TO, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({
-        Nome: nome, 'E-mail': val('f-email'), 'Telefone / WhatsApp': val('f-tel'), 'Área de interesse': area, Mensagem: val('f-msg') || '(sem mensagem)',
-        _subject: 'Nova solicitação pelo site: ' + area, _replyto: val('f-email'), _template: 'table', _captcha: 'false'
-      })
-    }).then(function(r){
-      return r.json().then(function(j){ if (!r.ok || String(j.success) !== 'true') throw new Error(j.message || 'Falha no envio'); });
-    }).then(function(){
+    // FormSubmit does not answer the CORS preflight, so send a plain multipart POST in no-cors mode.
+    // The response is opaque: only a network failure can be detected here.
+    var fd = new FormData();
+    fd.append('Nome', nome);
+    fd.append('E-mail', val('f-email'));
+    fd.append('Telefone / WhatsApp', val('f-tel'));
+    fd.append('Área de interesse', area);
+    fd.append('Mensagem', val('f-msg') || '(sem mensagem)');
+    fd.append('_subject', 'Nova solicitação pelo site: ' + area);
+    fd.append('_replyto', val('f-email'));
+    fd.append('_template', 'table');
+    fd.append('_captcha', 'false');
+    fetch('https://formsubmit.co/ajax/' + FORM_TO, { method: 'POST', mode: 'no-cors', body: fd }).then(function(){
       document.getElementById('success-area').textContent = area;
       document.getElementById('success-msg').textContent = 'Obrigado, ' + nome.split(/\s+/)[0] + '. O escritório retorna pelo contato informado, em horário de atendimento.';
       form.hidden = true; ok.hidden = false;
