@@ -530,6 +530,11 @@ html.js .bars.live .bar{transform:scaleY(var(--s,1));filter:brightness(var(--b,1
 .to-top svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.5}
 .to-top:hover i{background:var(--gold);color:var(--navy);transform:translateY(-3px)}
 .ft-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px 24px;flex-wrap:wrap;margin-top:clamp(56px,8vh,88px);padding-top:22px;border-top:1px solid var(--line-d);font-size:13px;color:var(--mist)}
+/* name left, credit in the exact middle, copyright right */
+@media (min-width:861px){
+  .ft-bottom{display:grid;grid-template-columns:1fr auto 1fr}
+  .ft-copy{justify-self:end;text-align:right}
+}
 .ft-credit a{color:var(--off);background:linear-gradient(var(--gold),var(--gold)) left bottom/0 1px no-repeat;padding-bottom:2px;transition:background-size .4s var(--ease),color .3s}
 .ft-credit a:hover,.ft-credit a:focus-visible{color:var(--gold-l);background-size:100% 1px}
 
@@ -1229,7 +1234,6 @@ html.js [data-fade].in{opacity:1}
       <div class="ft-col">
         <h4>Contato</h4>
         <a href="https://wa.me/554399818010" target="_blank" rel="noopener">(43) 9981-8010</a>
-        <a href="tel:+554399818010">(43) 9981-8010</a>
         <a href="mailto:gabrielfilemonadv@gmail.com">gabrielfilemonadv@gmail.com</a>
         <span class="ft-btns">
           <a class="btn btn-sm" href="https://wa.me/554399818010" target="_blank" rel="noopener">WhatsApp<span class="btn-i" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg><svg viewBox="0 0 16 16"><path d="M4 12L12 4M5 4h7v7"/></svg></span></a>
@@ -1244,8 +1248,8 @@ html.js [data-fade].in{opacity:1}
   </div>
   <div class="ft-bottom">
     <span>Gabriel Filemon Advocacia</span>
-    <span>© 2026 Gabriel Filemon Advocacia. Todos os direitos reservados.</span>
     <span class="ft-credit">Site por <a href="https://www.lowna.com.br" target="_blank" rel="noopener noreferrer">Löwna Studio</a></span>
+    <span class="ft-copy">© 2026 Gabriel Filemon Advocacia. Todos os direitos reservados.</span>
   </div>
 </footer>
 </div>
