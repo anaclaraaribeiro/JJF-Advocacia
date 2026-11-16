@@ -530,6 +530,8 @@ html.js .bars.live .bar{transform:scaleY(var(--s,1));filter:brightness(var(--b,1
 .to-top svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.5}
 .to-top:hover i{background:var(--gold);color:var(--navy);transform:translateY(-3px)}
 .ft-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px 24px;flex-wrap:wrap;margin-top:clamp(56px,8vh,88px);padding-top:22px;border-top:1px solid var(--line-d);font-size:13px;color:var(--mist)}
+.ft-credit a{color:var(--off);background:linear-gradient(var(--gold),var(--gold)) left bottom/0 1px no-repeat;padding-bottom:2px;transition:background-size .4s var(--ease),color .3s}
+.ft-credit a:hover,.ft-credit a:focus-visible{color:var(--gold-l);background-size:100% 1px}
 
 /* mobile menu */
 .menu{position:fixed;inset:0;z-index:50;isolation:isolate;overflow-y:auto;background:radial-gradient(70% 40% at 100% 100%,rgba(201,168,76,.18),rgba(201,168,76,0) 70%),var(--navy);display:flex;flex-direction:column;padding:calc(10px + env(safe-area-inset-top,0px)) max(22px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(22px,env(safe-area-inset-left,0px));clip-path:inset(0 0 100% 0);transition:clip-path .75s var(--ease)}
@@ -1243,6 +1245,7 @@ html.js [data-fade].in{opacity:1}
   <div class="ft-bottom">
     <span>Gabriel Filemon Advocacia</span>
     <span>© 2026 Gabriel Filemon Advocacia. Todos os direitos reservados.</span>
+    <span class="ft-credit">Site por <a href="https://www.lowna.com.br" target="_blank" rel="noopener noreferrer">Löwna Studio</a></span>
   </div>
 </footer>
 </div>
